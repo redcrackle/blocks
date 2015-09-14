@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Blocks Documentation</title>
+<link href="http://fonts.googleapis.com/css?family=Voces" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="style.css"/>
+<script src="jquery.js"></script>
+<script src="toc.js"></script>
+</head>
+<body>
+<div id="toc">
+	
+</div>
+
+
+<div id="wrapper">
+<h2>Overview</h2>
+<p>A Metro-inspired Drupal 7 theme powered by <a href="http://foundation.zurb.com/" target="_blank">Zurb Foundation 3</a>. Blocks features a fully responsive design, easy to use theme settings and follows Drupal coding standards. For theme support that cannot be found in this documentation, please visit our <a href="http://refaktorthemes.com/support"> support forum</a>. Once you have registered please contact us via the <a href="http://themeforest.net/user/refaktor" target="_blank">ThemeForest author page</a> with your forum username so you can be granted posting rights.</p>
+<p>Updated: 07/01/13<br>Author: <a href="http://refaktorthemes.com" target="_blank">Refaktor</a><br>Docs powered by: <a href="https://github.com/jgallen23/toc" target="_blank">TOC</a></p>
+<h2>Installation</h2>
+<p>There are several ways Blocks can be installed. For existing sites that already have content, the first method will only involve the installation and activation of the theme. The second option includes a full Drupal 7 install with the same SQL database file used to create the theme demo. Please choose which installation method works best for you and follow the instructions.
+<h3>Theme Only</h3>
+Option 1:
+<ul>
+  <li>Visit yourdomain.com/admin/appearance/install</li>
+  <li>Upload the Blocks.zip file</li>
+  <li>Enable and set to default</li>
+</ul>
+Option 2:
+<ul>
+  <li>Extract the Blocks.zip file and upload via FTP to /sites/all/themes</li>
+  <li>Visit yourdomain.com/admin/appearance/</li>
+  <li>Scroll down to "DISABLED THEMES" and set and enable Blocks</li>
+</ul>
+<h3>Full Drupal Install</h3>
+<p>The following steps are designed for people that have experience manually installing Drupal and importing databases. If you do not feel comfortable performing these steps yourself, contact your server administrator for help. <strong>NOTE</strong> this option is for a completely new Drupal install. Do not import the provided SQL file into an existing Drupal database or you will lose all of your data!</p>
+<ol>
+<li>Create a database for this installation of Drupal and import the SQL file that came with the theme.</li>
+<li>Follow <a href="http://drupal.org/documentation/install/settings-file" target="_blank"> these directions</a> to create the settings.php file. Save this file somewhere so you can copy it over to the Drupal installation we have provided.</li>
+<li>Copy the entire contents of the Drupal_7 folder to the location on your web server where you want your site to be accessed. If you want your primary domain to point to your install of Blocks, copy everything to the root folder. If you want your site to be accessed as a subsection of your domain (for example: yourdomain.com/drupal) then simply rename the Drupal_7 folder to the desired name and upload to the root of your server. Also be sure to copy over the settings.php file mentioned in the previous step</li>
+<li>Login to your site with the username <strong>Steve</strong> and the password <strong>admin</strong> and visit /admin/people to change the admin username and password. The passwords for the three test users are the username and 1234, example: Frank1234 </li>
+<li>Go through the Drupal configuration found in /admin/config options and update all the necessary information to reflect your website. Also be sure to visit /admin/config/media/file-system and change the Temporary Directory.</li>
+    
+</ol>  
+
+<h2>Bricks Sub-Theme</h2>
+<p>Blocks comes with a shell sub-theme called Bricks that you can use to make customizations to the style and template structure of the parent theme without having to modify the parent theme itself. This is useful if you plan on updating the parent theme as we release updates on ThemeForest. If you performed the full install you will already see Bricks in the list of themes available. If you did the standalone install you can find the Bricks.zip file in the root of the download files and you can install it like any other theme. </p>
+<p>There is an empty stylesheet already defined which is /css/custom.css (inside the Bricks folder). Use this file to add all of the custom CSS that you plan on using. You can also copy any template file from the /blocks/templates folder into the /bricks/templates folder and it will listen to the sub-themes template file first. This will allow you to update the parent theme as we make updates without losing your customizations. Just pay attention to the changelog and compare the parent theme files with yours and make any adjustments as needed.</p>
+<p>You will need to configure the sub-themes theme settings separately from the parent theme's, so visit /admin/appearance/settings/bricks to configure the theme settings for the sub-theme.</p>
+<h2>Header</h2>
+<h4>Menu</h4>
+<p>To edit your menu visit yourdomain.com/admin/structure/menu (pictured below)</p>
+<img src="images/menu-1.png">
+<p>Blocks uses a block region called "Header Menu" that you can add a menu block to. The demo uses the default "Main Menu" block.</p>
+<b>NOTE:</b> <p>If you would like to use Blocks's built in drop down menu capability, make sure that the parent menu item (the one that indicates the drop down) has the "show as expanded" checkbox enabled.</p>
+<p><img src="images/menu-description.png"></p>
+<h4>Menu Icons</h4>
+<p>Using Drupal's menu descriptions you can add font icons to your menu items! Blocks supports the <a href="http://www.zurb.com/playground/foundation-icons" target="_blank">Foundation font icons</a> as well as <a href="http://fortawesome.github.io/Font-Awesome/" target="_blank">Font Awesome</a>. Simply add the markup for the icon into the menu description field (see image above).</p>
+
+<p>The colors for the menu are controlled by the .menu_1 to .menu_6 classes, and more can be added by simply creating additional .menu_x classes.</p>
+<h4>Social Icons</h4>
+<p>You can use the following markup inside of a block and place it in the Header Top Right block region to mimic the icons seen on the demo:</p>
+<pre>
+&lt;ul class=&quot;header_icons&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;http://twitter.com&quot; target=&quot;_blank&quot;&gt;&lt;i class=&quot;social foundicon-twitter&quot;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://facebook.com&quot; target=&quot;_blank&quot;&gt;&lt;i class=&quot;social foundicon-facebook&quot;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://plus.google.com&quot; target=&quot;_blank&quot;&gt;&lt;i class=&quot;social foundicon-google-plus&quot;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;               
+  &lt;li&gt;&lt;a href=&quot;http://pinterest.com&quot; target=&quot;_blank&quot;&gt;&lt;i class=&quot;social foundicon-pinterest&quot;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;               
+  &lt;li&gt;&lt;a href=&quot;http://linkedin.com&quot; target=&quot;_blank&quot;&gt;&lt;i class=&quot;social foundicon-linkedin&quot;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;             
+  &lt;li&gt;&lt;a href=&quot;http://flickr.com&quot; target=&quot;_blank&quot;&gt;&lt;i class=&quot;social foundicon-flickr&quot;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;             
+  &lt;li&gt;&lt;a href=&quot;http://youtube.com&quot; target=&quot;_blank&quot;&gt;&lt;i class=&quot;social foundicon-youtube&quot;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;             
+  &lt;li&gt;&lt;a href=&quot;&quot; target=&quot;_blank&quot;&gt;&lt;i class=&quot;social foundicon-rss&quot;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;		
+</pre>
+
+<h2>Modules</h2>
+<p>You can find all of the modules in the full Drupal install that comes with the download files (drupal_7/sites/all/modules).</p>
+
+<h3>Required Modules</h3>
+<ul>
+<li><a href="http://drupal.org/project/jquery_update">jQuery update (dev version)</a></li>
+<li><a href="http://drupal.org/project/ctools">ctools</a></li>
+<li><a href="http://drupal.org/project/views">Views</a></li>
+<li><a href="https://drupal.org/project/color_field">Color Field (for Tiles)</a></li>
+</ul>
+
+<h3>Recommended Modules</h3>
+<ul>
+<li><a href="http://drupal.org/project/contact_form_blocks">Contact Form Blocks</a></li>
+<li><a href="http://drupal.org/project/navigation404">404 Navigation</a>
+<li><a href="http://drupal.org/project/multiblock">Multiblock</a></li>
+<li><a href="https://drupal.org/project/conditional_fields">Conditional Fields (dev version 7)</a></li>
+</ul>
+
+<h3>Blocks Content Data</h3>
+<p>If you used option 1 to install the theme on an existing install that already has content we recommend you use our Blocks Content Data module to create the additional content types, fields and Views needed to fully utilize the theme. You will find it in the root of the directory that contains the download files. This module is a custom <a href="http://drupal.org/project/features" target="_blank">Features</a> module and will not run without it. We recommend copying all of the modules from the /drupal_7/sites/all/modules folder into your install if you do not already have them. After you have all the modules simply upload and activate the Blocks Content Data module and the content types, fields and Views will automatically be created.</p>
+
+<h2>Theme Settings</h2>
+<p>Blocks includes a powerful set of theme settings that allow you to configure many aspects of your site. They are organized in a series of tabbed menu items each with their own set of options. Simply click on the option heading to expand the full set of options. The Blocks theme options can be accessed by visiting yourdomain.com/admin/appearance/settings/blocks. All options have default values set, but you should go through each one and adjust them to your liking.</p>
+
+<h2>Front Page</h2>
+<p>The front page seen on the Blocks demo is a basic page configured to be the default front page and several blocks inside the "Content" block region. You can configure an alternate front page by visiting /admin/config/system/site-information and editing the "Default front page" setting. To configure blocks to only appear on the front page simply use the block visibility settings when configuring your block.</p>
+
+<h4>Image Slider</h4>
+<p>New in version 2 of Blocks is the inclusion of the Drupal <a href="http://codecanyon.net/item/mega-slider/4313171" target="_blank">Mega Slider</a> module. This module offers an incredible number of options to create the exact slider to meet your needs. To begin configuring your slider visit /admin/structure/md-slider and press the "add new slider" link. You can find documentation for the slider inside the md_slider module folder and you can reference the video below.</p>
+
+<p><iframe width="560" height="315" src="http://www.youtube.com/embed/G2LW6RrjhvM" frameborder="0" allowfullscreen></iframe></p>
+
+
+
+<h4>Tiles</h4>
+
+<p>Please reference the "Tiles" portion of the documentation for more info about creating a Tiles block like the one seen on the demo. To manually create a block with the markup like in version 1.x please refer to the /examples/services(legacy).php file.</p>
+
+<h4>Highlight</h4>
+<p>To create a "highlight" block like the one seen before the footer on the demo, you can use the following markup inside a block which can be placed inside the After Content region:</p>
+<pre>
+&lt;div id=&quot;highlight&quot;&gt;
+  &lt;div class=&quot;row&quot;&gt;
+    &lt;div class=&quot;one columns highlight_icon&quot;&gt;
+      &lt;i class=&quot;general foundicon-idea&quot;&gt;&lt;/i&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;eleven columns&quot;&gt;
+      &lt;h1 class=&quot;highlight_text&quot;&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.&lt;/h1&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</pre>
+
+<h4>Recent Posts</h4>
+<p>The recent posts section is a block designed to showcase your site's most recent blog/article posts. Blocks uses a custom view template called node--view--front-page-blog--block.tpl to achieve the look and feel of this section seen on the demo. To properly use this section, either create a new view called Front Page Blog (machine name must be front_page_blog) with the desired number of blog/article teasers, or use the view export code found in /includes/view_exports/front-page-blog.txt</p>
+
+<h4>Recent Projects</h4>
+<p>The recent projects section is designed to showcase recent portfolio items in a carousel (see the Portfolio section of these docs for instructions on how to set up your portfolio items). This section utilizes a custom view template called node--view--recent-projects--block.tpl to achieve the look and feel seen on the demo. To properly use this section, make sure you have set up some portfolio items as described in the "Portfolio" section of the documentation. Once you have some portfolio items, either create a new view called Recent Projects (machine name must be recent_projects) with the number of portfolio items desired. To import the view used on the demo use the export code found in /includes/views_exports/recent-projects.txt</p>
+
+
+<h2>Widgets</h2>
+<p>Blocks includes styling and code for several widgets such as the faq, Twitter feed and quote rotator. See below for the necessary markup to use each kind of widget in a block or page</p>
+<h4>Twitter</h4>
+<pre>&lt;div class='tweet query'&gt;&lt;/div&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+                        
+    jQuery(document).ready(function ($) {
+      
+      $(&quot;.tweet&quot;).tweet({
+        modpath: '&lt;?php global $root; echo $root;?&gt;/includes/twitter/',
+        username: &quot;envato&quot;,
+        avatar_size: 34,
+        count: 3,
+        loading_text: &quot;loading tweets...&quot;
+      });
+    
+    });
+    
+  &lt;/script&gt;</pre>
+<h4>FAQ</h4>
+<pre>&lt;ul class=&quot;faq&quot;&gt;
+  &lt;li class=&quot;divider&quot;&gt;&lt;h2 class=&quot;faq-head title-color gdl-title&quot;&gt;&lt;span class=&quot;faq-head-image active&quot;&gt;&lt;/span&gt;Title&lt;/h2&gt;
+    &lt;div class=&quot;faq-content&quot;&gt;
+      faq Text
+    &lt;/div&gt;
+  &lt;/li&gt;
+    &lt;li class=&quot;divider&quot;&gt;&lt;h2 class=&quot;faq-head title-color gdl-title&quot;&gt;&lt;span class=&quot;faq-head-image active&quot;&gt;&lt;/span&gt;Title&lt;/h2&gt;
+    &lt;div class=&quot;faq-content&quot;&gt;
+      faq Text
+    &lt;/div&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;</pre>
+<h4>Ad Block</h4>
+<pre>&lt;div class=&quot;ad_block&quot;&gt;
+  &lt;a href=&quot;#&quot;&gt;&lt;img src=&quot;http://placehold.it/150x150&quot;&gt;&lt;/a&gt;&lt;a href=&quot;#&quot;&gt;&lt;img src=&quot;http://placehold.it/150x150&quot;&gt;&lt;/a&gt;&lt;a href=&quot;#&quot;&gt;&lt;img src=&quot;http://placehold.it/150x150&quot;&gt;&lt;/a&gt;&lt;a href=&quot;#&quot;&gt;&lt;img src=&quot;http://placehold.it/150x150&quot;&gt;&lt;/a&gt;
+&lt;/div&gt;</pre>
+
+<h4>Flickr</h4>
+<pre>
+&lt;ul id=&quot;flickr_widget&quot; class=&quot;thumbs&quot;&gt;&lt;/ul&gt;
+        
+&lt;script type=&quot;text/javascript&quot;&gt;
+   jQuery(document).ready(function ($) {
+
+    $('#flickr_widget').jflickrfeed({
+			limit: 6,
+			qstrings: {
+				id: '39415781@N06'
+			},
+			itemTemplate: '&lt;li&gt;&lt;a href=&quot;{{image_b}}&quot;&gt;&lt;img src=&quot;{{image_s}}&quot; alt=&quot;{{title}}&quot; /&gt;&lt;/a&gt;&lt;/li&gt;'
+	  });
+	});
+&lt;/script&gt;
+</pre>
+
+<h4>Popular Tags</h4>
+Use the <a href="http://drupal.org/project/views" target="_blank">Views module</a> to create a block view titled "Popular Tags" that is an HTML list of the taxonomy term "Tags". You can set the number limit to whatever you like, just make sure to name it "Popular Tags" and to make it an HTML list.
+<h4>Google Maps</h4>
+<p>Below is the proper markup for using the Google Maps plugin (visit maps.google.com to get the value for the src attribute) </p>
+<pre>
+&lt;div class=&quot;twelve columns&quot;&gt;
+     &lt;div id=&quot;google_map&quot;&gt;
+       &lt;iframe width=&quot;1080&quot; height=&quot;370&quot; src=&quot;https://maps.google.com/maps?f=q&amp;amp;source=s_q&amp;amp;hl=en&amp;amp;geocode=&amp;amp;q=900+Bagby+St+Houston,+TX+77002&amp;amp;sll=33.687,-117.774252&amp;amp;sspn=0.324522,0.682526&amp;amp;t=m&amp;amp;ie=UTF8&amp;amp;hq=&amp;amp;hnear=900+Bagby+St,+Houston,+Harris,+Texas+77002&amp;amp;ll=29.761779,-95.370008&amp;amp;spn=0.003725,0.012864&amp;amp;z=17&amp;amp;iwloc=A&amp;amp;output=embed&quot;&gt;&lt;/iframe&gt;&lt;br /&gt;      
+     &lt;/div&gt;
+   &lt;/div&gt;
+</pre>
+<h2>Tiles</h2>
+<p><img src="images/tiles.png"></p>
+<p>Blocks 2.0 features a new content type called Tiles which is used to generate the "Who We Are" block as seen on the demo. When you create each tile you are able to select from a number of options to configure the size, color, caption, text/image, etc. To fully utilize this section the way we intended, the following modules are required (if you are not using the full demo content please use the Custom Content Module to automatically create all of the fields and dependencies this content type uses):</p>
+<p>
+<ul>
+<li><a href="http://drupal.org/project/views">Views</a></li>
+<li><a href="https://drupal.org/project/conditional_fields">Conditional Fields (dev version 7)</a></li>
+<li><a href="https://drupal.org/project/color_field">Color Field</a></li>
+</ul>	
+</p>
+<p>To start creating tiles visit /node/add and press "tiles". Start going through the options and configuring them to your preference. The Conditional Fields module is configured with this section to only display certain options depending on the selections you make. Below is an example of a configured tile node:</p>
+<p><img src="images/tile-creation.png"></p>
+<p>For the icon you can simply add the class name of the font icon you wish to use. Blocks supports the <a href="http://www.zurb.com/playground/foundation-icons" target="_blank">Foundation font icons</a> as well as <a href="http://fortawesome.github.io/Font-Awesome/" target="_blank">Font Awesome</a>. The final step is the View block, so if you aren't already using the demo content or the Custom Content module which will create the View for you, simply import the /views_exports/tiles.txt code to create the View block.</p>
+<h2>Portfolio</h2>
+<p>This portion of the docs will explain how to set up the portfolio page seen on the theme demo. The only module you will need is the <a href="http://drupal.org/project/views" target="_blank">Views module</a> which is needed to create the list of portfolio items and the optional filters block. We recommend you use the Blocks Custom Content module described earlier in the documentation to set up the views, custom content types and fields needed to use the portfolio. You can also set them up manually by following the instructions below:</p>
+
+<h4>Filters (optional)</h4>
+In the demo you will see buttons above the portfolio items on the main portfolio overview page that when clicked will only show items in that particular category. To utilize this effect visit /admin/structure/taxonomy and create a new vocabulary (example: Portfolio). After creating your vocabulary you can create the terms you wish to use to categorize your portfolio items. This taxonomy vocabulary can be linked to the Portfolio content type via a term reference field so you can select the category or categories you want to place your items into.</p>
+
+<p>The filters are powered by a View called Portfolio Filters that is placed in the View header as a global view area. If you don't already have this view you can use the code in /views_exports/portfolio-filters.txt to import as a View for placement in the View header of the Portfolio Mason views.</p>
+
+<p><strong>Note:</strong> when creating terms that have more than one word, separate them with a hyphen (for example: two-words). The filters will not work properly if there is a standard space in between.</p>
+
+<h4>Portfolio content type</h4>
+<p>The first step is to create a new content type called <b>Portfolio Item</b>. To create a new content type visit /admin/structure/types and click "add content type". Title the new content type "Portfolio Item" (this is important), enter a brief description and save.</p>
+<p> Next you have to add custom fields for the portfolio image and the (optional) category. Press the "manage fields" link under Portfolio Item in the content type overview page and use the "Add new field" option. Enter "Portfolio image" in the label field and select "Image" as the field type. Press save when you are done, and you will now have an image uploader when creating a Portfolio item. Finally if you wish to use the sortable filters (see above for more detailed info) create a field called Portfolio Category that is a term reference of the taxonomy vocabulary you created.</p>
+
+<p>Creating a portfolio item is as simple as creating any other content type. Visit /admin/content, click "Add content" and select the new Portfolio Item type you just created. Enter the title, text, upload your image and add your tag or tags (only put a space between each tag, no commas) and press save.</p>
+<h4>Portfolio View</h4>
+<p>To create a Portfolio page to display all of your portfolio items as seen on our demo, you will need to use the <a href="http://drupal.org/project/views" target="_blank">Views module</a>. You can either import the /includes/views_exports/portfolio.txt or follow these instructions: Once you have installed the module, visit /admin/structure/views and click "Add new view". Enter "Portfolio" into the view name text field, select Portfolio Item as the content type to pull from, make sure "create page" is checked off to make this a page view and tell it to pull an unformated list of full posts. You should also have it create a Menu link, but you can also do this later using the Menu options. You can also use the code found in /includes/views_exports/portfolio.txt to import the view.
+</p>
+
+<p>If you wish to utilize the filters, add the Filters view (see above for more details) to the view header as a global view area.</p>
+
+<h2>Blog</h2>
+<p>If you plan to have a blog on your site, be sure to read through this portion of the documentation which outlines a couple things to keep in mind. The theme uses a custom Views template called page--blog.tpl which is designed to be used with a Views page titled Blog (the machine name of the View has to be blog for the template to work properly). Either import /includes/views_export/blog.txt or use the Blocks Custom Content module described earlier in the documentation to create this page.</p>
+<p>
+Blocks also comes equipped with the functionality to use a simple image slider within the post (as seen on our demo). To make use of this feature, simply visit admin/structure/types/manage/article/fields/field_image (if you're using the blog content type simply change article to blog in that path) and scroll down to the Image Field Settings. Change the "number of values" setting to unlimited to allow you to upload as many images as you want. The theme will automatically place multiple images into a slider.
+</p>
+<h2>Footer</h2>
+<p>Blocks's footer is split up into two parts. The main footer is split up into 4 block regions which can be used to display any information you want. The secondary footer has a full width block region that can be used.</p>
+
+<h2>Block Regions</h2>
+<p>Blocks features 14 block regions where you can add your own custom content. Visit yourdomain.com/admin/structure/block to add your own content to the defined block regions. Press "Add Block" to create a new custom blog, or select an existing block from the Disabled list below the defined block regions.</p>
+<h2>Version 1.X</h2>
+<p>If you are coming from Blocks 1.X you will notice quite a few differences. The biggest (and most obvious) is the absence of the old Front Page options and the page--front.tpl file. The old way severely limited what you could do with your front page, and now that the front page can be created with a basic page using blocks inside the "Content" region you can do just about anything you want with your front page.</p>
+<p>Some of your existing Front Page blocks like the Tiles (Who We Are), Recent Projects and Recent Posts can just be added to the Content region, but the slider and highlight will need to be re-created. We will go over each of these three and the options you have.</p>
+<h4>Slider</h4>
+<p>As mentioned earlier in the documentation Blocks 2.0 uses the Mega Drupal slider module which is much more robust. Please refer to that section of the documentation for instructions on how to use this new module to create your slider. If you want to use your existing slider the following markup can be used to re-create your old image slider in a block (simply add the image links and captions you were using before in the appropriate location).</p>
+<pre>
+&lt;div id=&quot;banner&quot;&gt;  		
+     
+  &lt;div class=&quot;oneByOne_item&quot;&gt;
+		&lt;img src=&quot;&quot; class=&quot;slide1_img1&quot; alt=&quot;slider&quot;&gt;	            
+		&lt;img src=&quot;&quot; class=&quot;slide1_img2&quot; alt=&quot;slider&quot;&gt;		    
+		&lt;img src=&quot;&quot; class=&quot;slide1_img3&quot; alt=&quot;slider&quot;&gt;			
+		&lt;span class=&quot;slide1_txt1&quot;&gt;CAPTION&lt;/span&gt;
+		&lt;span class=&quot;slide1_txt2&quot;&gt;CAPTION&lt;/span&gt;												
+	&lt;/div&gt;
+
+  &lt;div class=&quot;oneByOne_item&quot;&gt;
+		&lt;span class=&quot;slide2_txt1&quot;&gt;CAPTION&lt;/span&gt;			
+		&lt;span class=&quot;slide2_txt2&quot;&gt;CAPTION&lt;/span&gt;	
+		&lt;img src=&quot;&quot; class=&quot;slide2_img1&quot; data-animate=&quot;lightSpeedIn&quot; alt=&quot;slider&quot;&gt;		
+		&lt;img src=&quot;&quot; class=&quot;slide2_img2&quot; data-animate=&quot;lightSpeedIn&quot; alt=&quot;slider&quot;&gt;	
+		&lt;img src=&quot;&quot; class=&quot;slide2_img3&quot; data-animate=&quot;lightSpeedIn&quot; alt=&quot;slider&quot;&gt;
+	&lt;/div&gt;   
+
+	&lt;div class=&quot;oneByOne_item&quot;&gt;                                 	
+		&lt;img src=&quot;&quot; class=&quot;slide3_img1&quot; data-animate=&quot;bounceIn&quot; alt=&quot;slider&quot;&gt;
+		&lt;span class=&quot;slide3_txt1&quot; data-animate=&quot;bounceIn&quot;&gt;CAPTION&lt;/span&gt;								
+		&lt;span class=&quot;slide3_txt2&quot; data-animate=&quot;rollIn&quot;&gt;CAPTION&lt;/span&gt;											
+		&lt;span class=&quot;slide3_txt3&quot;&gt;CAPTION&lt;/span&gt;														
+	&lt;/div&gt;	     
+
+&lt;/div&gt;
+</pre>
+<h4>Tiles</h4>
+<p>Please see the "Tiles" section found earlier in the docs for information about using our new Tiles content type to create your tiles. If you wish you can also use your existing blocks as you were before. Simply put the tile markup block in the Content region and the Modal window markup in the new Modal Markup region.</p>
+<h4>Highlight</h4>
+<p>To create a "highlight" block like the one seen before the footer on the demo, you can use the following markup inside a block which can be placed inside the After Content region (you can use the Content region as well but it won't be full-width):</p>
+<pre>
+&lt;div id=&quot;highlight&quot;&gt;
+  &lt;div class=&quot;row&quot;&gt;
+    &lt;div class=&quot;one columns highlight_icon&quot;&gt;
+      &lt;i class=&quot;general foundicon-idea&quot;&gt;&lt;/i&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;eleven columns&quot;&gt;
+      &lt;h1 class=&quot;highlight_text&quot;&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.&lt;/h1&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</pre>
+<h2>Thank You</h2>
+<p>Thank you very much for purchasing the Blocks responsive Drupal 7 theme. Once again if you have any issues or feedback please connect via the <a href="http://themeforest.net/user/refaktor" target="_blank">ThemeForest author page</a>. Enjoy using Blocks!</p>
+</p>&copy 2013 Refaktor.
+</div>
+<script>$('#toc').toc();</script></body></html>

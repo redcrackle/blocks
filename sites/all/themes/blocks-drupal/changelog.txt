@@ -1,0 +1,93 @@
+===Blocks Changelog===
+
+2.0.2 (07/08/13)
+  *Fixed link color bug in color scheme style sheets.
+  *Removed obsolete Portfolio page template and article/blog node tempaltes.
+  *Organized template files into sub-folders.
+  *Added options for menu descriptions and post "share icons".
+
+2.0.1 (07/04/13)
+  *Fixed major bug related to the Branding section.
+  *Added several missing translation wrappers around text strings.
+  *General style and bug fixes.
+
+2.0 (07/01/13)
+  *New "Tiles" content type and View block region.
+  *Mega Slider Drupal module included ($20 value).
+  *Removed page--front.tpl and all front page theme settings in favor of fully utilizing block regions and visibility settings.
+  *Dynamically generated portfolio filters powered by taxonomy terms.
+  *Added retina.js library.
+  *Added Font Awesome icon font library.
+  *Removed social icon settings in favor of using a block region.
+  *Removed typography options in favor of module use.
+  *Updated Twitter widget to work with API v1.1.
+  *New Header block regions.
+  *Menu now a block region instead of called programatically.
+  *Moved code from /includes/header.php and /includes/footer.php into page template files.
+  *Menu icons now controlled by menu descriptions, old JS will be left but commented out for legacy support.
+  *Loading animation for front page.
+  *Other minor style tweaks/fixes.
+
+1.1 (05/20/13)
+  *Updated Drupal Core to 7.22.
+  *Changed branding link to "url('<front>')".
+  *Removed theme jQuery library in favor of utilizing jQuery Update module.
+  *Bricks sub-theme no longer requires parent CSS and JS files in sub-theme folder.
+  *Removed theme SEO settings as modules offer superior functionality.
+  *Removed unecessary Layout and Footer theme settings in favor of using block visibility settings
+  *Updated documentation to reflect new changes.
+  *Minor style fixes.
+
+1.0.8 (03/25/13)
+  *Updated Drupal Core to 7.21.
+  *Fixed some bugs related to the main navigation.
+  *Fixed theme setting definition causing a bug in WAMP installs.
+  *Updated Typography settings with separate font selector for headings.
+
+1.0.7 (02/25/13)
+  *Updated Drupal Core in full install to 7.20.
+  *Added example sub-theme (Bricks) and sub-theme documentation.
+  *Added rel=author attribute to submitted by $username meta tag for better SEO.
+  *Updated Ad Block widget and documentation.
+  *Several IE8 fixes.
+
+1.0.6 (02/07/13)
+  *Updated some broken image paths.
+  *Changed all site and support links to new domain (refaktorthemes.com).
+  *Created new demo SQL file to reflect changes. 
+
+1.0.5 (02/04/13)
+  *Fixed RSS validation bug caused by whitespace in template files.
+  *Updated full Drupal install to 7.19.
+  *Added Blocks Custom Content module to download files.
+  *Added conditional for blog slider dependent on whether or not an image is uploaded.
+  *Added Vimeo social icon to header icons.
+  *Fixed missing Drupal edit tabs in two templates.
+  *Added some additional code examples and Views exports.
+  *Updated documentation to clarify several sections.
+
+1.0.4 (01/15/13)
+  *Fixed bug with share icons in node.tpl template.
+  *Fixed bug with modal windows when logged in.
+  *Built in support for Organic Groups module. 
+  *Modified boxed layout to include the footer. 
+
+1.0.3 (01/10/13)
+  *Fix for undefined index error related to $field_tags in node templates.
+  *Moved code from /includes/front-page.php (left for reference only) to /tempates/page--front.tpl.
+  *Added block region to use for front page modal markup.
+  *Improvements to demo content (all content moved to node content, Views and blocks).
+  *Updated documentation.
+
+1.0.2 (01/02/13)
+  *Added custom template for "blog" content type.
+  *Added theme setting for two, three and four columns on Portfolio template.
+  *Updated full Drupal install to 7.18.
+  *General maintenance and code cleanup.
+
+1.0.1 (12/19/12)
+  *Updated a few default images.
+  *Fixed "illegal option" bug with theme settings.
+
+1.0 (12/13/12)
+  *Initial release.

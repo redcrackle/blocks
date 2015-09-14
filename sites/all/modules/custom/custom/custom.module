@@ -1,0 +1,18 @@
+<?php
+/* 
+* To add the custom hooks and the functions.
+*
+*/
+
+
+/* 
+* To alter the form
+*
+*/
+function custom_form_alter(&$form, &$form_state, $form_id) {
+
+  if( $form_id == 'webform_client_form_125'){  
+     //drupal_set_title('Contact Us');  
+  }
+  
+}  

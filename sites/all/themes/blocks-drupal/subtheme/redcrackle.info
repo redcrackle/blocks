@@ -1,0 +1,48 @@
+name = Redcrackle (Sub-theme of Blocks)
+description = A Sub-theme of Blocks. 
+core = 7.x
+
+base theme = blocks
+stylesheets[all][] = css/sub-theme.css
+
+regions[header_login] 	= Header Login
+regions[header_contact] = Header Contact
+
+regions[header_top_left] = Header Top Left
+regions[header_top_right] = Header Top Right
+
+regions[header_menu] = Header Menu
+
+regions[page_heading] = Page Heading
+
+regions[content]        = Content
+regions[sidebar_first]  = First Sidebar
+regions[sidebar_second] = Second Sidebar
+regions[after_content]  = After Content
+
+regions[footer_1]       = Footer Box 1
+regions[footer_2]       = Footer Box 2
+regions[footer_3]       = Footer Box 3
+regions[footer_4]       = Footer Box 4
+regions[footer_full]    = Footer Full Width
+
+regions[modal_markup]    = Modal Markup (legacy support)
+
+settings[breadcrumbs] = '1'
+settings[loader] = '0'
+settings[menu_description] = '1'
+settings[share_icons] = '1'
+
+settings[color_scheme] = 'blue'
+
+settings[body_background] ='#ECECEC'
+settings[enable_background_pattern] = '0'
+settings[background_select] = 'gplaypattern'
+
+settings[heading_background] ='#ECECEC'
+settings[enable_heading_pattern] = '1'
+settings[heading_background_select] = 'shattered'
+
+settings[enable_boxed_layout] = '0'
+
+settings[portfolio_columns] = 'three'

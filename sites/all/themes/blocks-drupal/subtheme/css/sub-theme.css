@@ -1,0 +1,224 @@
+/* CSS file for the sub theme */
+#node-122 .field-label, #node-123 .field-label, #node-124 .field-label{
+display:none;
+}
+
+.view-id-case_study_development_  .views-row, .view-id-development_blog_entries .views-row{
+line-height:200%;
+}
+
+.lower-half {
+	border-top: 1px solid gray;
+	padding-top: 40px;
+}
+
+.three-columns .column {
+	width:33%;
+	float:left;
+}
+/* For the case study full mode page */
+.portfolio_image{
+	margin-left:auto;
+	margin-right:auto;
+	width:100%;	
+}
+.node-type-portfolio-item .field-label{
+	width: 100%;
+}
+
+.img_center{
+  text-align:center;
+}
+/* TO add a <BR> */
+.blank{
+  margin-bottom: 2em;
+}
+/* To change the title color */
+.page_heading_text {
+ color: #000!important;
+}
+
+.client .field-content p:last-child, .field-name-field-testimonials .even p:last-child{
+  float:right;
+}
+
+.view-testimonials-slideshow .views-field-title{
+margin-top:5%;
+list-style: none;
+}
+
+.view-testimonials-slideshow ul{
+list-style: none;
+}
+
+.recent_post_links {
+  background-color: transparent!important;
+}
+
+.page-node-44{
+  background-image: none;
+}
+.services-wrapper a{ 
+	width: 100%;
+	display: inline-block;
+	padding: 2%; 
+}
+
+.view-id-relevant_case_studies .field-content{
+line-height: 2;
+}
+#block-views-development-blog-entries-block h2:first-child{
+display:none;
+}
+
+/*  SECTIONS  */
+.section {
+	clear: both;
+	padding: 0px;
+	margin: 0px;
+}
+
+/*  COLUMN SETUP  */
+.col {
+	display: block;
+	float:left;
+	margin: 1% 0 1% 1.6%;
+}
+.col:first-child { margin-left: 0; }
+
+
+/*  GROUPING  */
+.group:before,
+.group:after {
+	content:"";
+	display:table;
+}
+.group:after {
+	clear:both;
+}
+
+/*  GRID OF THREE  */
+.span_3_of_3 {
+	width: 100%;
+}
+.span_2_of_3 {
+	width: 66.1%;
+}
+.span_1_of_3 {
+	width: 32.2%;
+}
+
+/*  GO FULL WIDTH AT LESS THAN 480 PIXELS */
+
+@media only screen and (max-width: 480px) {
+	.col { 
+		margin: 1% 0 1% 0%;
+	}
+}
+
+@media only screen and (max-width: 480px) {
+	.span_3_of_3 {
+		width: 100%; 
+	}
+	.span_2_of_3 {
+		width: 100%; 
+	}
+	.span_1_of_3 {
+		width: 100%;
+	}
+}
+
+.service-block{
+padding-right:1%;
+}
+
+#newsletter-block {
+  padding: 20px;
+  background-color: #fff0e0;
+  margin-top: 20px;
+}
+div.branding{
+  margin-top:15px;
+}
+
+.content-left, .content-left-cont {
+  float: left;
+}
+
+@media only screen and (min-width: 997px) {
+  .content-left, .content-left-cont {
+    width:58.66%;
+    max-width:550px;
+  }
+}
+
+.list-home {
+  margin-left:2rem;
+}
+
+div.content-right img{
+  width:41.66%;
+  margin-left:2rem;
+  max-width:450px; 
+  /*max-height:320px;*/
+}
+.content-right-contact {
+  float:left;
+  max-width:450px; 
+}
+/* iPhone width */
+@media only screen and (max-width: 640px) {
+  .content-left, .content-left-cont {
+     width:100%;
+     max-width:100%;
+  }
+  div.content-right img{
+    width:100%;
+    max-width:100%; 
+    max-height:100%;
+  }
+  .content-right-contact {
+    max-width:100%; 
+  }
+}
+
+#modalContent {
+  position: fixed !important;
+  top: 100px !important;
+}
+
+#modal-content {
+  height: auto !important;
+  font-size: 1.5em;
+  line-height: 1.6em;
+  width: 100% !important;
+}
+
+.ctools-modal-content.modal-forms-modal-content {
+  height: auto !important;
+}
+
+.mauticform-button {
+  background-color: #ed1b24;
+  border: none;
+  width: 100%;
+  color: #fff;
+  text-transform: uppercase;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-size: 1.5em;
+}
+
+.modal-header {
+  font-size: 1.8em;
+}
+
+div.ctools-modal-content .modal-title {
+  white-space: normal;
+}
+
+.mauticform-errormsg {
+  color: #ed1b24;
+  display: block;
+  margin-bottom: 12px;
+}

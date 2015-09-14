@@ -1,0 +1,75 @@
+name = Blocks
+description = A Metro-Inspired Responsive Drupal 7 Theme. 
+core = 7.x
+engine = phptemplate
+version = 2.0.2
+
+stylesheets[all][] = foundation/stylesheets/foundation.css
+stylesheets[all][] = foundation/stylesheets/app.css
+stylesheets[all][] = foundation/stylesheets/social_foundicons.css
+stylesheets[all][] = foundation/stylesheets/general_foundicons.css
+stylesheets[all][] = css/font-awesome.css
+stylesheets[all][] = css/sliders/animate.css
+stylesheets[all][] = css/sliders/jquery.onebyone.css
+stylesheets[all][] = css/sliders/slider.css
+stylesheets[all][] = css/style.css
+
+scripts[] = foundation/javascripts/foundation.min.js
+scripts[] = foundation/javascripts/app.js
+scripts[] = js/jquery.isotope.js
+scripts[] = js/jquery.touchSwipe.js
+scripts[] = js/jquery.onebyone.min.js
+scripts[] = js/jquery.touchwipe.min.js
+scripts[] = js/retina.js
+scripts[] = includes/twitter/jquery.tweet.js
+scripts[] = js/slimbox2.js
+scripts[] = js/jflickrfeed.min.js
+scripts[] = js/jquery.carouFredSel-6.1.0.js
+scripts[] = js/mobile-map.js
+scripts[] = js/jquery.ui.totop.js
+scripts[] = js/easing.js
+scripts[] = js/blocks.js
+
+scripts[] = js/style_switch.js
+
+regions[header_login] 	= Header Login
+regions[header_contact] = Header Contact
+
+regions[header_top_left] = Header Top Left
+regions[header_top_right] = Header Top Right
+
+regions[header_menu] = Header Menu
+
+regions[page_heading] = Page Heading
+
+regions[content]        = Content
+regions[sidebar_first]  = First Sidebar
+regions[sidebar_second] = Second Sidebar
+regions[after_content]  = After Content
+
+regions[footer_1]       = Footer Box 1
+regions[footer_2]       = Footer Box 2
+regions[footer_3]       = Footer Box 3
+regions[footer_4]       = Footer Box 4
+regions[footer_full]    = Footer Full Width
+
+regions[modal_markup]    = Modal Markup (legacy support)
+
+settings[breadcrumbs] = '1'
+settings[loader] = '0'
+settings[menu_description] = '1'
+settings[share_icons] = '1'
+
+settings[color_scheme] = 'blue'
+
+settings[body_background] ='#ECECEC'
+settings[enable_background_pattern] = '0'
+settings[background_select] = 'gplaypattern'
+
+settings[heading_background] ='#ECECEC'
+settings[enable_heading_pattern] = '1'
+settings[heading_background_select] = 'shattered'
+
+settings[enable_boxed_layout] = '0'
+
+settings[portfolio_columns] = 'three'
