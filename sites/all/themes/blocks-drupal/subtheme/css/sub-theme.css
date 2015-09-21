@@ -323,3 +323,7 @@ div.td.col-std.mid {
   border: 0px;
   padding-top: 10px;
 }
+
+code {
+  background: none;
+}
