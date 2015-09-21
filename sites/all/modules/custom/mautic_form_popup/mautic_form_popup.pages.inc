@@ -25,7 +25,7 @@ function mautic_form_popup_view($js = NULL, $campaign) {
   $html = field_get_items('node', $campaign, 'field_mautic_form_html');
   $html = $html[0]['value'];
 
-  $mautic_base_url = variable_get('mautic_base_url', 'http://leads.redcrackle.com');
+  $mautic_base_url = variable_get('mautic_base_url', 'http://offers.redcrackle.com');
 
   $dom = new DOMDocument();
   $dom->loadHTML($html);
@@ -85,7 +85,7 @@ function mautic_form_popup_view($js = NULL, $campaign) {
     'id' => $campaign->nid,
   );
 
-  $response = drupal_http_request(url('http://leads.redcrackle.com/index.php/form/generate.js', array('query' => $data)));
+  $response = drupal_http_request(url('http://offers.redcrackle.com/index.php/form/generate.js', array('query' => $data)));
   if ($response->code != 200) {
     $commands[] = array(
       'command' => 'mautic_form_popup',

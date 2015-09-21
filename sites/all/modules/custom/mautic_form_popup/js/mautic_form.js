@@ -4,12 +4,12 @@ if (typeof MauticSDKLoaded == 'undefined') {
     var head            = document.getElementsByTagName('head')[0];
     var script          = document.createElement('script');
     script.type         = 'text/javascript';
-    script.src          = 'http://leads.redcrackle.com/media/js/mautic-form.js';
+    script.src          = 'http://offers.redcrackle.com/media/js/mautic-form.js';
     script.onload       = function() {
         MauticSDK.onLoad();
     };
     head.appendChild(script);
-    var MauticDomain = 'http://leads.redcrackle.com';
+    var MauticDomain = 'http://offers.redcrackle.com';
     var MauticLang   = {
         'submittingMessage': "Please wait..."
     };
@@ -45,6 +45,18 @@ MauticFormValidations['drupal7performanceoptimizationmoduleslistebookdownloadfor
         },
     };
 
+    /** This is needed for each form **/
+    MauticFormValidations['objectorientedphpfordrupaldevelopers'] = {
+        'email': {
+            type: 'email',
+            name: 'email'
+        },
+        'company': {
+            type: 'text',
+            name: 'company'
+        },
+    };
+
 MauticFormCallback['drupal7performanceoptimizationmoduleslistebookdownloadform'] = {
     'onResponseEnd': function(response) {
         if (response.success) {
@@ -60,9 +72,9 @@ MauticFormCallback['drupal7performanceoptimizationmoduleslistebookdownloadform']
 MauticFormCallback['drupal8tutorials'] = {
     'onResponseEnd': function(response) {
         if (response.success && !window.popupMessageShown) {
-            jQuery('#modal-content').after(jQuery('.mauticform-message').html());
-            jQuery('.modal-scroll').css('padding', '2em 1em 1em 1em').css('font-size', '1.6em');
-            jQuery('#modal-content').hide();
+            jQuery('#modal-content', '.bounce-convert-custom-modal').after(jQuery('.mauticform-message', '.bounce-convert-custom-modal').html());
+            jQuery('.modal-scroll', '.bounce-convert-custom-modal').css('padding', '2em 1em 1em 1em').css('font-size', '1.6em');
+            jQuery('#modal-content', '.bounce-convert-custom-modal').hide();
             window.popupMessageShown = true;
             setTimeout(function () { Drupal.CTools.Modal.modal_dismiss(); }, 3000);
         }

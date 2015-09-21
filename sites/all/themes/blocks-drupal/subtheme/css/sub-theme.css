@@ -222,3 +222,104 @@ div.ctools-modal-content .modal-title {
   display: block;
   margin-bottom: 12px;
 }
+
+.td {
+  display:table-cell;
+  vertical-align: top;
+}
+
+div.td.col-std.mid.col-title {
+  border-top: 1px solid #d8d7d7;
+  border-radius: 6px 0px 0px 0px;
+}
+
+.col-title.td {
+  padding: 5px;
+  border-bottom: 1px solid #d8d7d7;
+}
+
+.col-std.td {
+  border-left: 1px solid #d8d7d7;
+}
+
+.td.mid {
+  text-align: center;
+  vertical-align:middle;
+}
+
+.col-std, .col-pro.td, .col-vip.td {
+  border-right: 1px solid #d8d7d7;
+  font-size: 13px;
+}
+
+.col-std, .col-pro, .col-vip {
+  width: 23%;
+}
+
+div.tb-price-list {
+  display:table-row-group
+}
+
+.col-price.td {
+  border-bottom: 1px solid #d8d7d7;
+}
+
+div.pricing-box.monthly-toggle {
+  border: 0px
+}
+
+.pricing-table .table-column .pricing-box, .pricing-box {
+  color: #34495e;
+  text-align: center;
+}
+
+.pricing-tables.table-view .pricing-box .pricing-per {
+  font-size: 12px;
+  padding-top: 8px;
+}
+
+.pricing-table .table-column .pricing-box .pricing-per, .pricing-box .pricing-per {
+  font-weight: 600;
+  margin-top: -8px;
+}
+
+.col-label.td {
+  padding-left: 15px;
+}
+
+.pricing-box-text .pricing-symbol, .pricing-box-text .pricing-price, .pricing-per {
+  -webkit-transition: color 1s linear;
+  -moz-transition: color 1s linear;
+  -ms-transition: color 1s linear;
+  -o-transition: color 1s linear;
+  transition: color 1s linear;
+}
+
+.pricing-table .table-column .pricing-box .pricing-price, .pricing-box .pricing-price {
+  font-size: 60px;
+  line-height: 45px;
+  font-weight: 600;
+  display: inline-block;
+}
+
+.pricing-tables.table-view .pricing-box-text .pricing-price {
+  font-size: 55px;
+}
+
+.pricing-min {
+  font-size: 12px;
+}
+
+.pricing-tables.table-view .yearly-toggle, .pricing-tables.table-view.yearly .monthly-toggle {
+  display: none;
+}
+
+.tb-price-list .td {
+  border-bottom: 1px solid #d8d7d7;
+  padding: 5px 5px;
+}
+
+div.td.col-std.mid {
+  border: 0px;
+  padding-top: 10px;
+}
