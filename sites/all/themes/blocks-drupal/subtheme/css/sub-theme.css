@@ -357,7 +357,7 @@ div.ctools-modal-content .modal-title {
 }
 .pricing-table .button-large {
   height: 41px;
-  padding-top: 4px;
+  padding-top: 8px;
   font-size: 18px;
 }
 
@@ -575,7 +575,6 @@ code {
 }
 .pricing-table .button-large {
   height: 41px;
-  padding-top: 4px;
   font-size: 18px;
 }
 
