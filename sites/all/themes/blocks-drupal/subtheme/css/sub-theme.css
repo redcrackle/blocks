@@ -225,6 +225,10 @@ div.ctools-modal-content .modal-title {
 
 /* Start of Drupal Services Form Styles */
 
+.pricing-table{
+  border: none;
+}
+
 .pricing-table .table-column.col-standard { margin-right: 0px; margin-top: 85px; }
 .pricing-table .table-column.col-professional { margin-right: 10%; }
 .pricing-selection-container {
