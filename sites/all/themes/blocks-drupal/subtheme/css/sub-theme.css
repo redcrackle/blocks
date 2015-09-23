@@ -1,29 +1,29 @@
 /* CSS file for the sub theme */
 #node-122 .field-label, #node-123 .field-label, #node-124 .field-label{
-display:none;
+  display:none;
 }
 
 .view-id-case_study_development_  .views-row, .view-id-development_blog_entries .views-row{
-line-height:200%;
+  line-height:200%;
 }
 
 .lower-half {
-	border-top: 1px solid gray;
-	padding-top: 40px;
+  border-top: 1px solid gray;
+  padding-top: 40px;
 }
 
 .three-columns .column {
-	width:33%;
-	float:left;
+  width:33%;
+  float:left;
 }
 /* For the case study full mode page */
 .portfolio_image{
-	margin-left:auto;
-	margin-right:auto;
-	width:100%;	
+  margin-left:auto;
+  margin-right:auto;
+  width:100%;
 }
 .node-type-portfolio-item .field-label{
-	width: 100%;
+  width: 100%;
 }
 
 .img_center{
@@ -35,7 +35,7 @@ line-height:200%;
 }
 /* To change the title color */
 .page_heading_text {
- color: #000!important;
+  color: #000!important;
 }
 
 .client .field-content p:last-child, .field-name-field-testimonials .even p:last-child{
@@ -43,12 +43,12 @@ line-height:200%;
 }
 
 .view-testimonials-slideshow .views-field-title{
-margin-top:5%;
-list-style: none;
+  margin-top:5%;
+  list-style: none;
 }
 
 .view-testimonials-slideshow ul{
-list-style: none;
+  list-style: none;
 }
 
 .recent_post_links {
@@ -58,31 +58,31 @@ list-style: none;
 .page-node-44{
   background-image: none;
 }
-.services-wrapper a{ 
-	width: 100%;
-	display: inline-block;
-	padding: 2%; 
+.services-wrapper a{
+  width: 100%;
+  display: inline-block;
+  padding: 2%;
 }
 
 .view-id-relevant_case_studies .field-content{
-line-height: 2;
+  line-height: 2;
 }
 #block-views-development-blog-entries-block h2:first-child{
-display:none;
+  display:none;
 }
 
 /*  SECTIONS  */
 .section {
-	clear: both;
-	padding: 0px;
-	margin: 0px;
+  clear: both;
+  padding: 0px;
+  margin: 0px;
 }
 
 /*  COLUMN SETUP  */
 .col {
-	display: block;
-	float:left;
-	margin: 1% 0 1% 1.6%;
+  display: block;
+  float:left;
+  margin: 1% 0 1% 1.6%;
 }
 .col:first-child { margin-left: 0; }
 
@@ -90,46 +90,46 @@ display:none;
 /*  GROUPING  */
 .group:before,
 .group:after {
-	content:"";
-	display:table;
+  content:"";
+  display:table;
 }
 .group:after {
-	clear:both;
+  clear:both;
 }
 
 /*  GRID OF THREE  */
 .span_3_of_3 {
-	width: 100%;
+  width: 100%;
 }
 .span_2_of_3 {
-	width: 66.1%;
+  width: 66.1%;
 }
 .span_1_of_3 {
-	width: 32.2%;
+  width: 32.2%;
 }
 
 /*  GO FULL WIDTH AT LESS THAN 480 PIXELS */
 
 @media only screen and (max-width: 480px) {
-	.col { 
-		margin: 1% 0 1% 0%;
-	}
+  .col {
+    margin: 1% 0 1% 0%;
+  }
 }
 
 @media only screen and (max-width: 480px) {
-	.span_3_of_3 {
-		width: 100%; 
-	}
-	.span_2_of_3 {
-		width: 100%; 
-	}
-	.span_1_of_3 {
-		width: 100%;
-	}
+  .span_3_of_3 {
+    width: 100%;
+  }
+  .span_2_of_3 {
+    width: 100%;
+  }
+  .span_1_of_3 {
+    width: 100%;
+  }
 }
 
 .service-block{
-padding-right:1%;
+  padding-right:1%;
 }
 
 #newsletter-block {
@@ -159,26 +159,26 @@ div.branding{
 div.content-right img{
   width:41.66%;
   margin-left:2rem;
-  max-width:450px; 
+  max-width:450px;
   /*max-height:320px;*/
 }
 .content-right-contact {
   float:left;
-  max-width:450px; 
+  max-width:450px;
 }
 /* iPhone width */
 @media only screen and (max-width: 640px) {
   .content-left, .content-left-cont {
-     width:100%;
-     max-width:100%;
+    width:100%;
+    max-width:100%;
   }
   div.content-right img{
     width:100%;
-    max-width:100%; 
+    max-width:100%;
     max-height:100%;
   }
   .content-right-contact {
-    max-width:100%; 
+    max-width:100%;
   }
 }
 
@@ -223,70 +223,45 @@ div.ctools-modal-content .modal-title {
   margin-bottom: 12px;
 }
 
-.td {
-  display:table-cell;
-  vertical-align: top;
-}
+/* Start of Drupal Services Form Styles */
 
-div.td.col-std.mid.col-title {
-  border-top: 1px solid #d8d7d7;
-  border-radius: 6px 0px 0px 0px;
+.pricing-table .table-column.col-standard { margin-right: 0px; margin-top: 85px; }
+.pricing-table .table-column.col-professional { margin-right: 10%; }
+.pricing-selection-container {
+  max-width: 400px;
+  width: 280px;
+  float: right;
+  margin-top: 10px;
+  margin-right: 0px;
 }
-
-.col-title.td {
-  padding: 5px;
-  border-bottom: 1px solid #d8d7d7;
-}
-
-.col-std.td {
-  border-left: 1px solid #d8d7d7;
-}
-
-.td.mid {
+.pricing-selection {
+  float: left;
+  width: 50%;
+  border: 1px solid #f67547;
   text-align: center;
-  vertical-align:middle;
+  cursor: pointer;
+  padding: 5px 10px;
+  box-sizing: border-box;
 }
-
-.col-std, .col-pro.td, .col-vip.td {
-  border-right: 1px solid #d8d7d7;
-  font-size: 13px;
+.pricing-selection.selected {
+  background-color: #f67547;
+  color: #fff;
 }
-
-.col-std, .col-pro, .col-vip {
-  width: 23%;
+.pricing-selection.select-monthly {
+  border-radius: 4px 0px 0px 4px;
+  border-right: 0px;
 }
-
-div.tb-price-list {
-  display:table-row-group
+.pricing-selection.select-yearly {
+  border-radius: 0px 4px 4px 0px;
+  border-left: 0px;
 }
-
-.col-price.td {
-  border-bottom: 1px solid #d8d7d7;
+.pricing-tables.yearly .pricing-table.monthly,
+.pricing-tables .pricing-table.yearly {
+  display: none;
 }
-
-div.pricing-box.monthly-toggle {
-  border: 0px
+.pricing-tables.yearly .pricing-table.yearly {
+  display: block;
 }
-
-.pricing-table .table-column .pricing-box, .pricing-box {
-  color: #34495e;
-  text-align: center;
-}
-
-.pricing-tables.table-view .pricing-box .pricing-per {
-  font-size: 12px;
-  padding-top: 8px;
-}
-
-.pricing-table .table-column .pricing-box .pricing-per, .pricing-box .pricing-per {
-  font-weight: 600;
-  margin-top: -8px;
-}
-
-.col-label.td {
-  padding-left: 15px;
-}
-
 .pricing-box-text .pricing-symbol, .pricing-box-text .pricing-price, .pricing-per {
   -webkit-transition: color 1s linear;
   -moz-transition: color 1s linear;
@@ -294,36 +269,387 @@ div.pricing-box.monthly-toggle {
   -o-transition: color 1s linear;
   transition: color 1s linear;
 }
-
-.pricing-table .table-column .pricing-box .pricing-price, .pricing-box .pricing-price {
-  font-size: 60px;
-  line-height: 45px;
-  font-weight: 600;
-  display: inline-block;
+.glow .pricing-box-text .pricing-symbol, .glow .pricing-box-text .pricing-price, .glow .pricing-per {
+  color: #587b96 !important;
+}
+.table {
+  display: table;
+}
+.tr {
+  display:table-row;
+}
+.td {
+  display:table-cell;
+  vertical-align: top;
 }
 
-.pricing-tables.table-view .pricing-box-text .pricing-price {
-  font-size: 55px;
+.col-std, .col-pro, .col-vip {
+  width: 23%;
 }
-
-.pricing-min {
-  font-size: 12px;
+.col-std, .col-pro.td, .col-vip.td {
+  border-right: 1px solid #d8d7d7;
+  font-size: 13px;
 }
-
-.pricing-tables.table-view .yearly-toggle, .pricing-tables.table-view.yearly .monthly-toggle {
-  display: none;
+.col-std.td img, .col-pro.td img, .col-vip.td img {
+  position: relative;
+  top: 2px;
+}
+.td.mid {
+  text-align: center;
+  vertical-align:middle;
+}
+.col-std.td {
+  border-left: 1px solid #d8d7d7;
 }
 
 .tb-price-list .td {
   border-bottom: 1px solid #d8d7d7;
   padding: 5px 5px;
 }
-
-div.td.col-std.mid {
-  border: 0px;
-  padding-top: 10px;
+.col-label.td {
+  padding-left: 15px;
 }
+.col-title.td {
+  padding: 5px;
+  border-bottom: 1px solid #d8d7d7;
+}
+.col-price.td {
+  border-bottom: 1px solid #d8d7d7;
+}
+.pricing-tables.table-view .pricing-table {
+  margin-top: 30px
+}
+.pricing-tables.table-view .yearly-toggle,
+.pricing-tables.table-view.yearly .monthly-toggle {
+  display: none;
+}
+.pricing-tables.table-view.yearly .yearly-toggle {
+  display: block;
+}
+.pricing-tables.table-view .pricing-box .pricing-per  {
+  font-size: 12px;
+  padding-top: 8px;
+}
+.pricing-tables.table-view .pricing-box-text .pricing-price {
+  font-size: 55px;
+}
+.pricing-min { font-size: 12px; }
+
+.summary-table {
+  width: 100%;
+  margin: 20px 0px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 15px 20px 0px;
+}
+.summary-table .td {
+  padding-bottom: 20px;
+}
+.plan-total-desc, .plan-title {
+  width: 80%;
+}
+.plan-title, .plan-price {
+  font-weight: bold;
+}
+.pricing-table .button-large {
+  height: 41px;
+  padding-top: 4px;
+  font-size: 18px;
+}
+
+.button-large, .button-large:visited {
+  display: inline-block;
+  text-align:center;
+  padding: 13px 30px;
+  font-size: 22px;
+  border-radius: 4px;
+  background: #FF541A;
+  background: url(../img/btn.png) top right no-repeat #FF541A;
+  background-image: none;
+
+  text-shadow: 0px 1px 2px rgba(5, 5, 5, 0.3);
+  border: 1px solid #e84d17;
+  border-bottom: 5px solid #e84d17;
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.5s, background-color 0.5s;
+  -webkit-transition: background 0.5s, background-color 0.5s;
+  cursor: pointer;
+}
+.button-large:hover, .button-large:visited:hover {
+  text-decoration: none;
+  color: #fff;
+  background: #b3d738;
+  background: url(../img/btn.png) top right no-repeat #E84D17;
+  background-image: none;
+  transition: background 0.5s, background-color 0.5s;
+  -webkit-transition: background 0.5s, background-color 0.5s;
+}
+.button-large:active {
+  text-decoration: none;
+  color: #fff!important;
+  top: 1px;
+  position: relative;
+}
+
+.pricing-table .table-column.col-professional .title-head {
+  background-color: #6388a6;
+  border-color: #6388a6;
+  color: #fff;
+}
+.pricing-table .table-column .pricing-box, .pricing-box  {
+  padding: 20px 0px;
+  color: #34495e;
+  text-align: center;
+  border: 1px solid #e1eaf1;
+}
+.pricing-box.sep {
+  border: 0px solid;
+}
+.pricing-table .table-column .pricing-box .pricing-box-text {
+  margin-left: -37px;
+}
+.pricing-table .table-column .pricing-box .pricing-symbol, .pricing-box .pricing-symbol {
+  font-size: 25px;
+  display: inline-block;
+  margin-right: 8px;
+}
+.pricing-table .table-column .pricing-box .pricing-per, .pricing-box .pricing-per {
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+.pricing-table .table-column .pricing-box .pricing-price, .pricing-box .pricing-price {
+  font-size: 60px;
+  line-height: 45px;
+  font-family: OpenSans,Arial;
+  font-weight: 600;
+  display: inline-block;
+}
+.pricing-table .table-column .jobs-list {
+  border: 1px solid #e1eaf1;
+  border-width: 0px 1px 1px;
+  font-size: 15px;
+  padding: 10px;
+}
+
+/* End of Drupal Support Form Styling*/
 
 code {
   background: none;
 }
+
+
+
+/* Start of Drupal Services Form Styles */
+
+.pricing-table .table-column.col-standard { margin-right: 0px; margin-top: 85px; }
+.pricing-table .table-column.col-professional { margin-right: 10%; }
+.pricing-selection-container {
+  max-width: 400px;
+  width: 280px;
+  float: right;
+  margin-top: 10px;
+  margin-right: 0px;
+}
+.pricing-selection {
+  float: left;
+  width: 50%;
+  border: 1px solid #f67547;
+  text-align: center;
+  cursor: pointer;
+  padding: 5px 10px;
+  box-sizing: border-box;
+}
+.pricing-selection.selected {
+  background-color: #f67547;
+  color: #fff;
+}
+.pricing-selection.select-monthly {
+  border-radius: 4px 0px 0px 4px;
+  border-right: 0px;
+}
+.pricing-selection.select-yearly {
+  border-radius: 0px 4px 4px 0px;
+  border-left: 0px;
+}
+.pricing-tables.yearly .pricing-table.monthly,
+.pricing-tables .pricing-table.yearly {
+  display: none;
+}
+.pricing-tables.yearly .pricing-table.yearly {
+  display: block;
+}
+.pricing-box-text .pricing-symbol, .pricing-box-text .pricing-price, .pricing-per {
+  -webkit-transition: color 1s linear;
+  -moz-transition: color 1s linear;
+  -ms-transition: color 1s linear;
+  -o-transition: color 1s linear;
+  transition: color 1s linear;
+}
+.glow .pricing-box-text .pricing-symbol, .glow .pricing-box-text .pricing-price, .glow .pricing-per {
+  color: #587b96 !important;
+}
+.table {
+  display: table;
+}
+.tr {
+  display:table-row;
+}
+.td {
+  display:table-cell;
+  vertical-align: top;
+}
+
+.col-std, .col-pro, .col-vip {
+  width: 23%;
+}
+.col-std, .col-pro.td, .col-vip.td {
+  border-right: 1px solid #d8d7d7;
+  font-size: 13px;
+}
+.col-std.td img, .col-pro.td img, .col-vip.td img {
+  position: relative;
+  top: 2px;
+}
+.td.mid {
+  text-align: center;
+  vertical-align:middle;
+}
+.col-std.td {
+  border-left: 1px solid #d8d7d7;
+}
+
+.tb-price-list .td {
+  border-bottom: 1px solid #d8d7d7;
+  padding: 5px 5px;
+}
+.col-label.td {
+  padding-left: 15px;
+}
+.col-title.td {
+  padding: 5px;
+  border-bottom: 1px solid #d8d7d7;
+}
+.col-price.td {
+  border-bottom: 1px solid #d8d7d7;
+}
+.pricing-tables.table-view .pricing-table {
+  margin-top: 30px
+}
+.pricing-tables.table-view .yearly-toggle,
+.pricing-tables.table-view.yearly .monthly-toggle {
+  display: none;
+}
+.pricing-tables.table-view.yearly .yearly-toggle {
+  display: block;
+}
+.pricing-tables.table-view .pricing-box .pricing-per  {
+  font-size: 12px;
+  padding-top: 8px;
+}
+.pricing-tables.table-view .pricing-box-text .pricing-price {
+  font-size: 55px;
+}
+.pricing-min { font-size: 12px; }
+
+.summary-table {
+  width: 100%;
+  margin: 20px 0px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 15px 20px 0px;
+}
+.summary-table .td {
+  padding-bottom: 20px;
+}
+.plan-total-desc, .plan-title {
+  width: 80%;
+}
+.plan-title, .plan-price {
+  font-weight: bold;
+}
+.pricing-table .button-large {
+  height: 41px;
+  padding-top: 4px;
+  font-size: 18px;
+}
+
+.button-large, .button-large:visited {
+  display: inline-block;
+  text-align:center;
+  padding: 13px 30px;
+  font-size: 22px;
+  border-radius: 4px;
+  background: #FF541A;
+  background: url(../img/btn.png) top right no-repeat #FF541A;
+  background-image: none;
+
+  text-shadow: 0px 1px 2px rgba(5, 5, 5, 0.3);
+  border: 1px solid #e84d17;
+  border-bottom: 5px solid #e84d17;
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.5s, background-color 0.5s;
+  -webkit-transition: background 0.5s, background-color 0.5s;
+  cursor: pointer;
+}
+.button-large:hover, .button-large:visited:hover {
+  text-decoration: none;
+  color: #fff;
+  background: #b3d738;
+  background: url(../img/btn.png) top right no-repeat #E84D17;
+  background-image: none;
+  transition: background 0.5s, background-color 0.5s;
+  -webkit-transition: background 0.5s, background-color 0.5s;
+}
+.button-large:active {
+  text-decoration: none;
+  color: #fff!important;
+  top: 1px;
+  position: relative;
+}
+
+.pricing-table .table-column.col-professional .title-head {
+  background-color: #6388a6;
+  border-color: #6388a6;
+  color: #fff;
+}
+.pricing-table .table-column .pricing-box, .pricing-box  {
+  padding: 20px 0px;
+  color: #34495e;
+  text-align: center;
+  border: 1px solid #e1eaf1;
+}
+.pricing-box.sep {
+  border: 0px solid;
+}
+.pricing-table .table-column .pricing-box .pricing-box-text {
+  margin-left: -37px;
+}
+.pricing-table .table-column .pricing-box .pricing-symbol, .pricing-box .pricing-symbol {
+  font-size: 25px;
+  display: inline-block;
+  margin-right: 8px;
+}
+.pricing-table .table-column .pricing-box .pricing-per, .pricing-box .pricing-per {
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+.pricing-table .table-column .pricing-box .pricing-price, .pricing-box .pricing-price {
+  font-size: 60px;
+  line-height: 45px;
+  font-family: OpenSans,Arial;
+  font-weight: 600;
+  display: inline-block;
+}
+.pricing-table .table-column .jobs-list {
+  border: 1px solid #e1eaf1;
+  border-width: 0px 1px 1px;
+  font-size: 15px;
+  padding: 10px;
+}
+
+
+/* End of Drupal Support Form Styling*/
