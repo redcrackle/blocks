@@ -654,5 +654,10 @@ code {
   padding: 10px;
 }
 
+h3.highlight, h4.highlight {
+  background: none;
+  font-weight: bold;
+}
+
 
 /* End of Drupal Support Form Styling*/
