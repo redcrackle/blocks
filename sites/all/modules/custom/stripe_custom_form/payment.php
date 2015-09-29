@@ -73,7 +73,7 @@
                             <label>
                                 <span>Card Number</span>
                             </label>
-                            <input type="text" size="20" data-stripe="number" placeholder="Card Number" class="form-control"/>
+                            <input type="text" maxlength="16" size="20" data-stripe="number" placeholder="Card Number" class="form-control"/>
                         </div>
 
 
@@ -81,16 +81,16 @@
                             <label>
                                 <span>CVC</span>
                             </label>
-                            <input type="text" size="4" data-stripe="cvc" placeholder="CVC" class="form-control"/>
+                            <input type="text" size="4"  data-stripe="cvc" placeholder="CVC" class="form-control"/>
                         </div>
 
                         <div class="form-group">
                             <label>
                                 Expiry
                             </label>
-                            <input type="text" size="2" data-stripe="exp-month" placeholder="MM" class="form-control"/>
+                            <input type="text" size="2" maxlength="2" data-stripe="exp-month" placeholder="MM" class="form-control"/>
                             <span> / </span>
-                            <input type="text" size="4" data-stripe="exp-year" placeholder="YYYY" class="form-control"/>
+                            <input type="text" size="4" maxlength="4" data-stripe="exp-year" placeholder="YYYY" class="form-control"/>
                         </div>
 
                         <div class="form-group">

@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Choose Plans</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+
+    <!-- The required Stripe lib -->
+    <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+
+    <script type="text/javascript" src="js/custom.js"></script>
+
+</head>
+<body>
+
+
+    <div class="container">
+        <h1 class="jumbotron">
+            Choose a plan that suits you
+        </h1>
+        <form>
+            <div class="form-group">
+                <button type="submit" class="btn" id="standard">Standard</button>
+            </div>
+        </form>
+
+        <form>
+            <div class="form-group">
+                <button type="submit" class="btn" id="professional">Professional</button>
+            </div>
+        </form>
+
+        <form>
+            <div class="form-group">
+                <button type="submit" class="btn" id="vip">VIP</button>
+            </div>
+        </form>
+    </div>
+
+
+    <!--------------Start of Standard Plan Purchase Form----------------->
+
+    <div class="container" id="standard_register">
+        <div class="row">
+            <div class="col-md-6">
+
+                <form action="charge.php" method="POST" id="payment-form" >
+                    <span class="payment-errors"></span>
+
+                    <div class="form-group">
+                        <label>
+                            Email Address
+                        </label>
+                        <input type="email" size="20" name="email" placeholder="Email Address" class="form-control"/>
+                    </div>
+
+                    <div class="form-group">
+                        <label>
+                            <span>Card Number</span>
+                        </label>
+                        <input type="text" maxlength="16" size="20" data-stripe="number" placeholder="Card Number" class="form-control"/>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label>
+                            <span>CVC</span>
+                        </label>
+                        <input type="text" size="4"  data-stripe="cvc" placeholder="CVC" class="form-control"/>
+                    </div>
+
+                    <div class="form-group">
+                        <label>
+                            Expiry
+                        </label>
+                        <input type="text" size="2" maxlength="2" data-stripe="exp-month" placeholder="MM" class="form-control"/>
+                        <span> / </span>
+                        <input type="text" size="4" maxlength="4" data-stripe="exp-year" placeholder="YYYY" class="form-control"/>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="checkbox"  > I agree to <a href="#"> terms and conditions </a>
+                    </div>
+
+                    <input type="hidden" name="plan" value="standard">
+
+                    <button type="submit" class="btn btn-default" >Start Standard Subscription</button>
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+<!--------------Start of Professional Plan Purchase Form----------------->
+
+    <div class="container" id="professional_register">
+        <div class="row">
+            <div class="col-md-6">
+
+                <form action="charge.php" method="POST" id="professional-form" >
+                    <span class="payment-errors"></span>
+
+                    <div class="form-group">
+                        <label>
+                            Email Address
+                        </label>
+                        <input type="email" size="20" name="email" placeholder="Email Address" class="form-control"/>
+                    </div>
+
+                    <div class="form-group">
+                        <label>
+                            <span>Card Number</span>
+                        </label>
+                        <input type="text" maxlength="16" size="20" data-stripe="number" placeholder="Card Number" class="form-control"/>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label>
+                            <span>CVC</span>
+                        </label>
+                        <input type="text" size="4"  data-stripe="cvc" placeholder="CVC" class="form-control"/>
+                    </div>
+
+                    <div class="form-group">
+                        <label>
+                            Expiry
+                        </label>
+                        <input type="text" size="2" maxlength="2" data-stripe="exp-month" placeholder="MM" class="form-control"/>
+                        <span> / </span>
+                        <input type="text" size="4" maxlength="4" data-stripe="exp-year" placeholder="YYYY" class="form-control"/>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="checkbox"  > I agree to <a href="#"> terms and conditions </a>
+                    </div>
+
+                    <input type="hidden" name="plan" value="professional">
+
+                    <button type="submit"  class="btn btn-default" >Start Professional Subscription</button>
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+    <!--------------Start of VIP Plan Purchase Form----------------->
+
+    <div class="container" id="vip_register">
+        <div class="row">
+            <div class="col-md-6">
+
+                <form action="charge.php" method="POST" id="vip-form" >
+                    <span class="payment-errors"></span>
+
+                    <div class="form-group">
+                        <label>
+                            Email Address
+                        </label>
+                        <input type="email" size="20" name="email" placeholder="Email Address" class="form-control"/>
+                    </div>
+
+                    <div class="form-group">
+                        <label>
+                            <span>Card Number</span>
+                        </label>
+                        <input type="text" maxlength="16" size="20" data-stripe="number" placeholder="Card Number" class="form-control"/>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label>
+                            <span>CVC</span>
+                        </label>
+                        <input type="text" size="4"  data-stripe="cvc" placeholder="CVC" class="form-control"/>
+                    </div>
+
+                    <div class="form-group">
+                        <label>
+                            Expiry
+                        </label>
+                        <input type="text" size="2" maxlength="2" data-stripe="exp-month" placeholder="MM" class="form-control"/>
+                        <span> / </span>
+                        <input type="text" size="4" maxlength="4" data-stripe="exp-year" placeholder="YYYY" class="form-control"/>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="checkbox"  > I agree to <a href="#"> terms and conditions </a>
+                    </div>
+
+                    <input type="hidden" name="plan" value="vip">
+
+                    <button type="submit"  class="btn btn-default" >Start VIP Subscription</button>
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
