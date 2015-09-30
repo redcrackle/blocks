@@ -1,0 +1,438 @@
+/* Start of Drupal Services Form Styles */
+
+.pricing-table{
+    border: none;
+}
+
+.pricing-table .table-column.col-standard { margin-right: 0px; margin-top: 85px; }
+.pricing-table .table-column.col-professional { margin-right: 10%; }
+.pricing-selection-container {
+    max-width: 400px;
+    width: 280px;
+    float: right;
+    margin-top: 10px;
+    margin-right: 0px;
+}
+.pricing-selection {
+    float: left;
+    width: 50%;
+    border: 1px solid #f67547;
+    text-align: center;
+    cursor: pointer;
+    padding: 5px 10px;
+    box-sizing: border-box;
+}
+.pricing-selection.selected {
+    background-color: #f67547;
+    color: #fff;
+}
+.pricing-selection.select-monthly {
+    border-radius: 4px 0px 0px 4px;
+    border-right: 0px;
+}
+.pricing-selection.select-yearly {
+    border-radius: 0px 4px 4px 0px;
+    border-left: 0px;
+}
+.pricing-tables.yearly .pricing-table.monthly,
+.pricing-tables .pricing-table.yearly {
+    display: none;
+}
+.pricing-tables.yearly .pricing-table.yearly {
+    display: block;
+}
+.pricing-box-text .pricing-symbol, .pricing-box-text .pricing-price, .pricing-per {
+    -webkit-transition: color 1s linear;
+    -moz-transition: color 1s linear;
+    -ms-transition: color 1s linear;
+    -o-transition: color 1s linear;
+    transition: color 1s linear;
+}
+.glow .pricing-box-text .pricing-symbol, .glow .pricing-box-text .pricing-price, .glow .pricing-per {
+    color: #587b96 !important;
+}
+.table {
+    display: table;
+}
+.tr {
+    display:table-row;
+}
+.td {
+    display:table-cell;
+    vertical-align: top;
+}
+
+.col-std, .col-pro, .col-vip {
+    width: 23%;
+}
+.col-std, .col-pro.td, .col-vip.td {
+    border-right: 1px solid #d8d7d7;
+    font-size: 13px;
+}
+.col-std.td img, .col-pro.td img, .col-vip.td img {
+    position: relative;
+    top: 2px;
+}
+.td.mid {
+    text-align: center;
+    vertical-align:middle;
+}
+.col-std.td {
+    border-left: 1px solid #d8d7d7;
+}
+
+.tb-price-list .td {
+    border-bottom: 1px solid #d8d7d7;
+    padding: 5px 5px;
+}
+.col-label.td {
+    padding-left: 15px;
+}
+.col-title.td {
+    padding: 5px;
+    border-bottom: 1px solid #d8d7d7;
+}
+.col-price.td {
+    border-bottom: 1px solid #d8d7d7;
+}
+.pricing-tables.table-view .pricing-table {
+    margin-top: 30px
+}
+.pricing-tables.table-view .yearly-toggle,
+.pricing-tables.table-view.yearly .monthly-toggle {
+    display: none;
+}
+.pricing-tables.table-view.yearly .yearly-toggle {
+    display: block;
+}
+.pricing-tables.table-view .pricing-box .pricing-per  {
+    font-size: 12px;
+    padding-top: 8px;
+}
+.pricing-tables.table-view .pricing-box-text .pricing-price {
+    font-size: 55px;
+}
+.pricing-min { font-size: 12px; }
+
+.summary-table {
+    width: 100%;
+    margin: 20px 0px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 15px 20px 0px;
+}
+.summary-table .td {
+    padding-bottom: 20px;
+}
+.plan-total-desc, .plan-title {
+    width: 80%;
+}
+.plan-title, .plan-price {
+    font-weight: bold;
+}
+.pricing-table .button-large {
+    height: 41px;
+    padding-top: 8px;
+    font-size: 18px;
+}
+
+.button-large, .button-large:visited {
+    display: inline-block;
+    text-align:center;
+    padding: 13px 30px;
+    font-size: 22px;
+    border-radius: 4px;
+    background: #FF541A;
+    background: url(../img/btn.png) top right no-repeat #FF541A;
+    background-image: none;
+
+    text-shadow: 0px 1px 2px rgba(5, 5, 5, 0.3);
+    border: 1px solid #e84d17;
+    border-bottom: 5px solid #e84d17;
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background 0.5s, background-color 0.5s;
+    -webkit-transition: background 0.5s, background-color 0.5s;
+    cursor: pointer;
+}
+.button-large:hover, .button-large:visited:hover {
+    text-decoration: none;
+    color: #fff;
+    background: #b3d738;
+    background: url(../img/btn.png) top right no-repeat #E84D17;
+    background-image: none;
+    transition: background 0.5s, background-color 0.5s;
+    -webkit-transition: background 0.5s, background-color 0.5s;
+}
+.button-large:active {
+    text-decoration: none;
+    color: #fff!important;
+    top: 1px;
+    position: relative;
+}
+
+.pricing-table .table-column.col-professional .title-head {
+    background-color: #6388a6;
+    border-color: #6388a6;
+    color: #fff;
+}
+.pricing-table .table-column .pricing-box, .pricing-box  {
+    padding: 20px 0px;
+    color: #34495e;
+    text-align: center;
+    border: 1px solid #e1eaf1;
+}
+.pricing-box.sep {
+    border: 0px solid;
+}
+.pricing-table .table-column .pricing-box .pricing-box-text {
+    margin-left: -37px;
+}
+.pricing-table .table-column .pricing-box .pricing-symbol, .pricing-box .pricing-symbol {
+    font-size: 25px;
+    display: inline-block;
+    margin-right: 8px;
+}
+.pricing-table .table-column .pricing-box .pricing-per, .pricing-box .pricing-per {
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+.pricing-table .table-column .pricing-box .pricing-price, .pricing-box .pricing-price {
+    font-size: 60px;
+    line-height: 45px;
+    font-family: OpenSans,Arial;
+    font-weight: 600;
+    display: inline-block;
+}
+.pricing-table .table-column .jobs-list {
+    border: 1px solid #e1eaf1;
+    border-width: 0px 1px 1px;
+    font-size: 15px;
+    padding: 10px;
+}
+
+/* End of Drupal Support Form Styling*/
+
+code {
+    background: none;
+}
+
+
+
+/* Start of Drupal Services Form Styles */
+
+.pricing-table .table-column.col-standard { margin-right: 0px; margin-top: 85px; }
+.pricing-table .table-column.col-professional { margin-right: 10%; }
+.pricing-selection-container {
+    max-width: 400px;
+    width: 280px;
+    float: right;
+    margin-top: 10px;
+    margin-right: 0px;
+}
+.pricing-selection {
+    float: left;
+    width: 50%;
+    border: 1px solid #f67547;
+    text-align: center;
+    cursor: pointer;
+    padding: 5px 10px;
+    box-sizing: border-box;
+}
+.pricing-selection.selected {
+    background-color: #f67547;
+    color: #fff;
+}
+.pricing-selection.select-monthly {
+    border-radius: 4px 0px 0px 4px;
+    border-right: 0px;
+}
+.pricing-selection.select-yearly {
+    border-radius: 0px 4px 4px 0px;
+    border-left: 0px;
+}
+.pricing-tables.yearly .pricing-table.monthly,
+.pricing-tables .pricing-table.yearly {
+    display: none;
+}
+.pricing-tables.yearly .pricing-table.yearly {
+    display: block;
+}
+.pricing-box-text .pricing-symbol, .pricing-box-text .pricing-price, .pricing-per {
+    -webkit-transition: color 1s linear;
+    -moz-transition: color 1s linear;
+    -ms-transition: color 1s linear;
+    -o-transition: color 1s linear;
+    transition: color 1s linear;
+}
+.glow .pricing-box-text .pricing-symbol, .glow .pricing-box-text .pricing-price, .glow .pricing-per {
+    color: #587b96 !important;
+}
+.table {
+    display: table;
+}
+.tr {
+    display:table-row;
+}
+.td {
+    display:table-cell;
+    vertical-align: top;
+}
+
+.col-std, .col-pro, .col-vip {
+    width: 23%;
+}
+.col-std, .col-pro.td, .col-vip.td {
+    border-right: 1px solid #d8d7d7;
+    font-size: 13px;
+}
+.col-std.td img, .col-pro.td img, .col-vip.td img {
+    position: relative;
+    top: 2px;
+}
+.td.mid {
+    text-align: center;
+    vertical-align:middle;
+}
+.col-std.td {
+    border-left: 1px solid #d8d7d7;
+}
+
+.tb-price-list .td {
+    border-bottom: 1px solid #d8d7d7;
+    padding: 5px 5px;
+}
+.col-label.td {
+    padding-left: 15px;
+}
+.col-title.td {
+    padding: 5px;
+    border-bottom: 1px solid #d8d7d7;
+}
+.col-price.td {
+    border-bottom: 1px solid #d8d7d7;
+}
+.pricing-tables.table-view .pricing-table {
+    margin-top: 30px
+}
+.pricing-tables.table-view .yearly-toggle,
+.pricing-tables.table-view.yearly .monthly-toggle {
+    display: none;
+}
+.pricing-tables.table-view.yearly .yearly-toggle {
+    display: block;
+}
+.pricing-tables.table-view .pricing-box .pricing-per  {
+    font-size: 12px;
+    padding-top: 8px;
+}
+.pricing-tables.table-view .pricing-box-text .pricing-price {
+    font-size: 55px;
+}
+.pricing-min { font-size: 12px; }
+
+.summary-table {
+    width: 100%;
+    margin: 20px 0px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 15px 20px 0px;
+}
+.summary-table .td {
+    padding-bottom: 20px;
+}
+.plan-total-desc, .plan-title {
+    width: 80%;
+}
+.plan-title, .plan-price {
+    font-weight: bold;
+}
+.pricing-table .button-large {
+    height: 41px;
+    font-size: 18px;
+}
+
+.button-large, .button-large:visited {
+    display: inline-block;
+    text-align:center;
+    padding: 13px 30px;
+    font-size: 22px;
+    border-radius: 4px;
+    background: #FF541A;
+    background: url(../img/btn.png) top right no-repeat #FF541A;
+    background-image: none;
+
+    text-shadow: 0px 1px 2px rgba(5, 5, 5, 0.3);
+    border: 1px solid #e84d17;
+    border-bottom: 5px solid #e84d17;
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background 0.5s, background-color 0.5s;
+    -webkit-transition: background 0.5s, background-color 0.5s;
+    cursor: pointer;
+}
+.button-large:hover, .button-large:visited:hover {
+    text-decoration: none;
+    color: #fff;
+    background: #b3d738;
+    background: url(../img/btn.png) top right no-repeat #E84D17;
+    background-image: none;
+    transition: background 0.5s, background-color 0.5s;
+    -webkit-transition: background 0.5s, background-color 0.5s;
+}
+.button-large:active {
+    text-decoration: none;
+    color: #fff!important;
+    top: 1px;
+    position: relative;
+}
+
+.pricing-table .table-column.col-professional .title-head {
+    background-color: #6388a6;
+    border-color: #6388a6;
+    color: #fff;
+}
+.pricing-table .table-column .pricing-box, .pricing-box  {
+    padding: 20px 0px;
+    color: #34495e;
+    text-align: center;
+    border: 1px solid #e1eaf1;
+}
+.pricing-box.sep {
+    border: 0px solid;
+}
+.pricing-table .table-column .pricing-box .pricing-box-text {
+    margin-left: -37px;
+}
+.pricing-table .table-column .pricing-box .pricing-symbol, .pricing-box .pricing-symbol {
+    font-size: 25px;
+    display: inline-block;
+    margin-right: 8px;
+}
+.pricing-table .table-column .pricing-box .pricing-per, .pricing-box .pricing-per {
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+.pricing-table .table-column .pricing-box .pricing-price, .pricing-box .pricing-price {
+    font-size: 60px;
+    line-height: 45px;
+    font-family: OpenSans,Arial;
+    font-weight: 600;
+    display: inline-block;
+}
+.pricing-table .table-column .jobs-list {
+    border: 1px solid #e1eaf1;
+    border-width: 0px 1px 1px;
+    font-size: 15px;
+    padding: 10px;
+}
+
+h3.highlight, h4.highlight {
+    background: none;
+    font-weight: bold;
+}
+
+
+/* End of Drupal Support Form Styling*/

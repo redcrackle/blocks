@@ -3,6 +3,18 @@
 
 $(document).ready(function() {
 
+    //----------------disable and enable the subscribe button-------------------
+    $('.tos-cont').closest('form').find('#stripe-submit').prop("disabled", true);
+    $('.tos-cont').on('click',function() {
+        var ch = $(this).is(':checked');
+        if (ch == true) {
+            $(this).closest('form').find('#stripe-submit').prop("disabled", false);
+        }
+        else {
+            $(this).closest('form').find('#stripe-submit').prop("disabled", true);
+        }
+    });
+
     //----------------Popup for Standard plan------------------
 
     var std=$('#standard_register').dialog({
@@ -11,8 +23,8 @@ $(document).ready(function() {
         autoOpen:false,
         modal: true,
         hide: 'fade',
-        width:700,
-        height:700
+        width:900,
+        height:600
     });
 
 
@@ -29,8 +41,8 @@ $(document).ready(function() {
         autoOpen:false,
         modal: true,
         hide: 'fade',
-        width:700,
-        height:700
+        width:900,
+        height:600
     });
 
     $('#professional').click(function(e) {
@@ -46,8 +58,8 @@ $(document).ready(function() {
         autoOpen:false,
         modal: true,
         hide: 'fade',
-        width:700,
-        height:700
+        width:900,
+        height:600
     });
 
     $('#vip').click(function(e) {
@@ -146,4 +158,5 @@ jQuery(function($) {
         return false;
     });
 });
+
 
