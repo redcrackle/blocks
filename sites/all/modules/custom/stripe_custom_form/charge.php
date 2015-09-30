@@ -7,7 +7,34 @@
 
         <?php
             require_once('./config.php');
-            $token  = $_POST['stripeToken'];
+
+//          --------- Getting the specific stripe token -------------
+
+            $standardToken = "default";
+            if( isset($_POST['stripeTokenStandard']) && ($_POST['stripeTokenStandard'] !== '') ) {
+                $standardToken = $_POST['stripeTokenStandard'];
+            }
+
+            $professionalToken = "default";
+            if( isset($_POST['stripeTokenProfessional']) && ($_POST['stripeTokenProfessional'] !== '') ) {
+                $professionalToken = $_POST['stripeTokenProfessional'];
+            }
+
+            $vipToken = "default";
+            if( isset($_POST['stripeTokenVIP']) && ($_POST['stripeTokenVIP'] !== '') ) {
+                $vipToken = $_POST['stripeTokenVIP'];
+            }
+
+            if( $standardToken !== 'default' && $professionalToken === 'default' && $vipToken === 'default' ) {
+                $token = $standardToken;
+            } else if( $professionalToken !== 'default' && $standardToken === 'default' && $vipToken === 'default' ) {
+                $token = $professionalToken;
+            } else if( $vipToken !== 'default' && $standardToken === 'default' && $professionalToken === 'default' ) {
+                $token = $vipToken;
+            }
+
+//          ------- Create stripe customer and subscribe him to a plan ---------
+
             $customer = \Stripe\Customer::create(array(
                 'email' => $_POST['email'],
                 "plan" => $_POST['plan'],
@@ -25,7 +52,6 @@
                 $amt = 349;
             }
 
-            //  echo '<h1>Successfully subscribed to '.ucfirst($_POST['plan']).' Plan your card was charged for $'.$amt.'! Thank you!</h1>';
         ?>
 
         <div class="container">
