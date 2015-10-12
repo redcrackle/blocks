@@ -30,7 +30,20 @@ function stripe_payment_menu() {
         'type' => MENU_NORMAL_ITEM,
     );
 
+  $items['stripe-payment-page/planlink'] = array(
+    'page callback' => 'stripe_payment_linkmore',
+    'access callback' => TRUE,
+    'type' => MENU_NORMAL_ITEM,
+  );
     return $items;
+}
+
+function stripe_payment_linkmore()
+{
+  module_load_include('inc', 'popup', 'includes/popup.api');
+// I have inluded the php file for the popup
+
+  return 'Please pay ' . popup(array('form' => 'stripe_payment_form', 'activate' => 'click', 'width' => 950)) ;
 }
 
 
