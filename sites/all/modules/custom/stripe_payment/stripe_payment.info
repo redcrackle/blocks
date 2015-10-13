@@ -3,6 +3,4 @@ description = This module is for making a payment using stripe.
 package = Stripe
 core = 7.x
 files[] = stripe_payment.module
-files[] = vendor/
-files[] = js/
 
