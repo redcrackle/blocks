@@ -1,7 +1,8 @@
 <?php
+
 /**
  * @file
- * Hooks and general functions
+ * One Click Upload module.
  */
 
 /**
@@ -9,7 +10,7 @@
  */
 function ocupload_menu() {
   $items = array();
-  
+
   $items['admin/config/content/ocupload'] = array(
     'title' => 'One click upload',
     'description' => 'Configure module',
@@ -78,67 +79,116 @@ function ocupload_permission() {
 }
 
 /**
+ * Implements hook_library().
+ */
+function ocupload_library() {
+  $module_path = _ocupload_get_path();
+  $allowed_ext = _ocupload_get_allowed_ext();
+  $settings = array(
+    'ocupload' => array(
+      'allowedExt' => $allowed_ext,
+    )
+  );
+
+  $libraries['ocupload'] = array(
+    'title' => 'One Click Upload',
+    'website' => 'https://www.drupal.org/project/ocupload',
+    'version' => '2',
+    'js' => array(
+      array('data' => $settings, 'type' => 'setting'),
+      $module_path . '/flowjs/dist/flow.js' => array(),
+      $module_path . '/js/ocupload.js' => array(),
+    ),
+    'css' => array(
+      $module_path . '/ocupload.css' => array(),
+    ),
+  );
+
+  if (variable_get('ocupload_textarea_dragndrop', 1)) {
+    $libraries['ocupload']['js'][$module_path . '/js/textarea.js'] = array();
+  }
+
+  return $libraries;
+}
+
+/**
  * Implements hook_preprocess_html().
  */
 function ocupload_preprocess_html(&$vars) {
-  global $base_path;
-
   $scripts = drupal_add_js();
   $item = menu_get_item();
   $module_path = _ocupload_get_path();
-  $module_static_path = $module_path . '/static/';
-  $ocupload_use = FALSE;
+  $add_library = FALSE;
 
+  // Check BUEditor
   if (
     module_exists('bueditor') &&
     (isset($scripts[drupal_get_path('module', 'bueditor') . '/bueditor.js']) || $item['path'] == 'admin/config/content/bueditor/%')
   ) {
-    drupal_add_js($module_static_path . 'bueditor.js', array('weight' => 100));
-    $ocupload_use = TRUE;
+    drupal_add_js($module_path . '/js/bueditor.js', array('weight' => 100));
+    $add_library = TRUE;
   }
-  elseif (module_exists('ckeditor') && isset($scripts[ckeditor_path('url') . '/ckeditor.js'])) {
-    $ocupload_use = TRUE;
+
+  // Ckeck CKEditor
+  if (module_exists('ckeditor') && isset($scripts[ckeditor_path('url') . '/ckeditor.js'])) {
+    $add_library = TRUE;
   }
-  elseif (module_exists('wysiwyg')) {
+
+  // Check Wysiwyg with CKEditor
+  if (module_exists('wysiwyg')) {
     foreach ($scripts['settings']['data'] as $data) {
       if (isset($data['wysiwyg']['configs']['ckeditor'])) {
-        $ocupload_use = TRUE;
+        $add_library = TRUE;
         break;
       }
     }
   }
 
-  if ($ocupload_use) {
-    $allowed_ext = array();
-    foreach (ocupload_templates() as $template) {
-      if (user_access('upload files use template ' . $template->tid)) {
-        $allowed_ext = array_merge($allowed_ext, explode(',', $template->mask));
-      }
+  if ($add_library && _ocupload_get_allowed_ext()) {
+    drupal_add_library('ocupload', 'ocupload');
+  }
+}
+
+/**
+ * Implements hook_element_info_alter().
+ */
+function ocupload_element_info_alter(&$type) {
+  if (isset($type['text_format']) && variable_get('ocupload_textarea_dragndrop', 1)) {
+    $type['text_format']['#process'][] = 'ocupload_element_text_format_process';
+  }
+}
+
+/**
+ * text_format process callback.
+ */
+function ocupload_element_text_format_process($element) {
+  if (_ocupload_get_allowed_ext()) {
+    $element['#attributes']['class'][] = 'ocupload-drop';
+
+    if (isset($element['value'])) {
+      $element['value']['#attributes']['class'][] = 'ocupload-drop';
+    }
+    if (isset($element['summary'])) {
+      $element['summary']['#attributes']['class'][] = 'ocupload-drop';
     }
 
-    drupal_add_js('sites/all/libraries/swfupload/swfupload.js');
-    drupal_add_js('sites/all/libraries/swfupload/plugins/swfupload.queue.js');
-
-    drupal_add_js(array(
-      'ocupload' => array(
-        'phpsessid'  => session_id(),
-        'sizeLimit'  => file_upload_max_size(),
-        'allowedExt' => '*.' . implode('; *.', $allowed_ext) . ';',
-        'modulePath' => $base_path . $module_path,
-        'uploadPath' => url('ocupload/upload'),
-      )
-    ), 'setting');
-
-    drupal_add_css($module_static_path . 'styles.css');
+    $element['#attached']['library'][] = array('ocupload', 'ocupload');
   }
+
+  return $element;
 }
 
 /**
  * Implements hook_form_alter().
  */
 function ocupload_form_alter(&$form, &$form_state, $form_id) {
-  if (variable_get('ocupload_delete_unused_files', 1) && isset($form['#submit'])) {
-    array_unshift($form['#submit'], 'ocupload_change_files_status');
+  if ($form['#method'] == 'post') {
+    if (!isset($form['#submit'])) {
+      $form['#submit'][] = 'ocupload_change_files_status';
+    }
+    else {
+      array_unshift($form['#submit'], 'ocupload_change_files_status');
+    }
   }
 }
 
@@ -147,20 +197,57 @@ function ocupload_form_alter(&$form, &$form_state, $form_id) {
  */
 function ocupload_change_files_status($form, &$form_state) {
   $cid = 'ocupload:' . $form['#form_id'] . ':' . $GLOBALS['user']->uid;
+
   if ($cache = cache_get($cid)) {
+    module_load_include('inc', 'ocupload');
+
+    $form_id = $form['#form_id'];
+
+    $fields_map = array(
+      'user_profile_form' => array(
+        'signature[value]' => 'signature',
+      ),
+    );
+    drupal_alter('ocupload_fields_map', $fields_map, $form, $form_state);
+
     $permanent_files = array();
 
     foreach ($cache->data as $field_name => $files) {
-      $field_value = _ocupload_field_value_by_html_name($form_state, $field_name);
+      $form_state_field_name = isset($fields_map[$form_id][$field_name])
+        ? $fields_map[$form_id][$field_name]
+        : $field_name;
+      $field_value = _ocupload_field_value_by_html_name($form_state, $form_state_field_name);
+
+      if (!$field_value) {
+        continue;
+      }
+
       foreach ($files as $fid => $file_name) {
-        if (strpos($field_value, $file_name) !== FALSE) {
+        if (strpos($field_value, drupal_encode_path($file_name)) !== FALSE) {
+          // Change file status to permanent
           $file = file_load($fid);
           $file->status = FILE_STATUS_PERMANENT;
           file_save($file);
+
+          // Attach file to field
+          $file_extension = _ocupload_get_file_extension($file_name);
+          $template = _ocupload_get_appropriate_template($file_extension);
+          if ($template->field
+            && isset($form['#entity_type'])
+            && isset($form['#bundle'])
+            && isset($form_state['values'][$template->field])) {
+            $form_state['values'][$template->field][LANGUAGE_NONE][] = array(
+              'fid' => $file->fid,
+              'display' => 0,
+              '_weight' => 100,
+            );
+          }
+
           unset($cache->data[$field_name][$fid]);
           $permanent_files[] = $file;
         }
       }
+
       if (count($cache->data[$field_name]) == 0) {
         unset($cache->data[$field_name]);
       }
@@ -170,17 +257,18 @@ function ocupload_change_files_status($form, &$form_state) {
       drupal_alter('ocupload_saved_data', $permanent_files, $form, $form_state);
     }
 
-    cache_set($cid, $cache->data, 'cache', (count($cache->data) > 0) ? $cache->expire : CACHE_TEMPORARY);
+    $expire = count($cache->data) > 0 ? $cache->expire : CACHE_TEMPORARY;
+    cache_set($cid, $cache->data, 'cache', $expire);
   }
 }
 
 /**
- * Return template object by tid.
+ * Return template object by template id (tid).
  */
 function ocupload_template_load($tid) {
-  return db_select('ocupload_templates', 'bc')
-    ->fields('bc')
-    ->condition('bc.tid', $tid)
+  return db_select('ocupload_templates', 'ot')
+    ->fields('ot')
+    ->condition('ot.tid', $tid)
     ->execute()
     ->fetch();
 }
@@ -189,23 +277,16 @@ function ocupload_template_load($tid) {
  * Return all templates.
  */
 function ocupload_templates() {
-  return db_select('ocupload_templates', 'bc')
-    ->fields('bc')
-    ->execute()
-    ->fetchAllAssoc('tid');
-}
+  static $templates;
 
-/**
- * Return value by input name.
- */
-function _ocupload_field_value_by_html_name($form_state, $field_name) {
-  $parts = explode('[', $field_name);
-  $value = &$form_state['values'];
-  foreach ($parts as $part) {
-    $part = rtrim($part, ']');
-    $value = &$value[$part];
+  if ($templates === NULL) {
+    $templates = db_select('ocupload_templates', 'ot')
+      ->fields('ot')
+      ->execute()
+      ->fetchAllAssoc('tid');
   }
-  return $value;
+
+  return $templates;
 }
 
 /**
@@ -215,10 +296,12 @@ function ocupload_wysiwyg_plugin($editor, $version) {
   if ($editor == 'ckeditor') {
     return array(
       'OCUpload' => array(
-        'url' => 'http://drupal.org/project/ocupload',
-        'path' => _ocupload_get_path() . '/static',
+        'url' => 'https://drupal.org/project/ocupload',
+        'path' => _ocupload_get_path() . '/js',
         'load' => TRUE,
-        'buttons' => array('OCUpload' => t('One Click Upload')),
+        'buttons' => array(
+          'OCUpload' => t('One Click Upload'),
+        ),
       )
     );
   }
@@ -232,10 +315,10 @@ function ocupload_ckeditor_plugin() {
     'ocupload' => array(
       'name' => 'OCUpload',
       'desc' => 'One Click Upload',
-      'path' => _ocupload_get_path() . '/static/',
+      'path' => _ocupload_get_path() . '/js/',
       'buttons' => array(
         'OCUpload' => array(
-          'icon' => 'button.png',
+          'icon' => '../img/icon-ckeditor.png',
           'label' => 'One Click Upload',
         ),
       ),
@@ -244,8 +327,65 @@ function ocupload_ckeditor_plugin() {
 }
 
 /**
+ * Implements hook_features_api().
+ */
+function ocupload_features_api() {
+  return array(
+    'ocupload_templates' => array(
+      'name' => t('One Click Upload'),
+      'file' => _ocupload_get_path() . '/ocupload.features.inc',
+      'default_hook' => 'ocupload_templates',
+      'default_file' => FEATURES_DEFAULTS_INCLUDED,
+    )
+  );
+}
+
+/**
+ * Implements hook_cron().
+ */
+function ocupload_cron() {
+  $temporary_dir = 'temporary://ocupload';
+  if (file_exists($temporary_dir)) {
+    _ocupload_load_flowphp();
+    \Flow\Uploader::pruneChunks($temporary_dir, 3600);
+  }
+}
+
+/**
  * Return module path.
  */
 function _ocupload_get_path() {
-  return drupal_get_path('module', 'ocupload');
+  static $module_path;
+
+  if ($module_path === NULL) {
+    $module_path = drupal_get_path('module', 'ocupload');
+  }
+
+  return $module_path;
+}
+
+/**
+ * Return current user allowed file ext.
+ */
+function _ocupload_get_allowed_ext() {
+  static $allowed_ext;
+
+  if ($allowed_ext === NULL) {
+    $allowed_ext = array();
+    foreach (ocupload_templates() as $template) {
+      if (user_access('upload files use template ' . $template->tid)) {
+        $allowed_ext = array_merge($allowed_ext, explode(',', $template->mask));
+      }
+    }
+  }
+
+  return $allowed_ext;
+}
+
+/**
+ * Load Flow-php library.
+ */
+function _ocupload_load_flowphp() {
+  require_once(__DIR__ . '/flowphp/src/Flow/Autoloader.php');
+  \Flow\Autoloader::register();
 }

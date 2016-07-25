@@ -9,9 +9,9 @@ dependencies[] = charts
 
 stylesheets[all][] = css/bounce_convert.css
 
-; Information added by Drupal.org packaging script on 2014-05-06
-version = "7.x-1.0-alpha2"
+; Information added by Drupal.org packaging script on 2015-11-16
+version = "7.x-1.0-alpha3"
 core = "7.x"
 project = "bounce_convert"
-datestamp = "1399418028"
+datestamp = "1447696742"
 

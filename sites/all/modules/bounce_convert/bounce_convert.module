@@ -425,14 +425,15 @@ function bounce_convert_page_build(&$page) {
   // Fetch only campaigns that user role has permission for that.
   $data = bounce_convert_check_campaigns($user->roles);
 
-  ctools_include('modal');
-  ctools_include('ajax');
-  ctools_modal_add_js();
-  drupal_add_css(drupal_get_path('module', 'bounce_convert') . '/css/bounce_convert.css');
-  drupal_add_js(drupal_get_path('module', 'bounce_convert') . '/js/bounce_convert.js');
-  drupal_add_js(drupal_get_path('module', 'bounce_convert') . '/js/bounce_convert_popup.js');
-
   if (!empty($data)) {
+    
+    ctools_include('modal');
+    ctools_include('ajax');
+    ctools_modal_add_js();
+    drupal_add_css(drupal_get_path('module', 'bounce_convert') . '/css/bounce_convert.css');
+    drupal_add_js(drupal_get_path('module', 'bounce_convert') . '/js/bounce_convert.js');
+    drupal_add_js(drupal_get_path('module', 'bounce_convert') . '/js/bounce_convert_popup.js');
+
     $bounce_convert_campaign_id = $data['campaign_node_id'];
     $bounce_convert_webform_id = $data['webform_id'];
     $bounce_convert_cookie_expiry = $data['campaign_visit_cookie'];

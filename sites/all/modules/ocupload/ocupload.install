@@ -1,9 +1,9 @@
 <?php
+
 /**
  * @file
- * Install/Uninstall functions
+ * One Click Upload install file.
  */
-
 
 /**
  * Implements hook_schema().
@@ -32,9 +32,17 @@ function ocupload_schema() {
         'not null' => TRUE,
         'default' => '',
       ),
+      'filename' => array(
+        'description' => 'Filename',
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+        'default' => '',
+      ),
       'max_filesize' => array(
         'description' => 'Max filesize in bytes',
         'type' => 'int',
+        'size' => 'big',
         'unsigned' => TRUE,
         'not null' => TRUE,
         'default' => 0,
@@ -44,14 +52,14 @@ function ocupload_schema() {
         'type' => 'varchar',
         'length' => 255,
         'not null' => TRUE,
-        'default' => '<a href="!filepath">!filename</a>',
+        'default' => '',
       ),
       'template_select' => array(
         'description' => 'Template for replace selected text',
         'type' => 'varchar',
         'length' => 255,
         'not null' => TRUE,
-        'default' => '<a href="!filepath">!text</a>',
+        'default' => '',
       ),
       'image_style' => array(
         'description' => 'Image style',
@@ -80,7 +88,7 @@ function ocupload_schema() {
         'type' => 'varchar',
         'length' => 255,
         'not null' => TRUE,
-        'default' => '<a href="!filepath" target="_blank">!image</a>',
+        'default' => '',
       ),
       'link_only_big' => array(
         'description' => '1 - wrap template only big images, 0 - wrap all images',
@@ -97,18 +105,26 @@ function ocupload_schema() {
         'not null' => TRUE,
         'default' => '',
       ),
-      'rename_file' => array(
-        'description' => '1 - change filename to unique number (datetime), 0 - not change',
+      'transliterate' => array(
+        'description' => '1 - transliterate filename, 0 - not transliterate',
         'type' => 'int',
         'size' => 'tiny',
         'unsigned' => TRUE,
         'not null' => TRUE,
         'default' => 1,
       ),
+      'field' => array(
+        'description' => 'Field name',
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+        'default' => '',
+      ),
     ),
     'primary key' => array('tid'),
     'description' => 'Module templates',
   );
+
   return $shema;
 }
 
@@ -117,50 +133,46 @@ function ocupload_schema() {
  */
 function ocupload_install() {
   module_load_include('inc', 'ocupload');
-  
+
   $templates = array(
     array(
       'mask' => 'jpg,jpeg,gif,png',
-      'path' => 'images',
+      'path' => 'public://inline/images',
       'template' => '<img src="!filepath" alt="" />',
       'template_select' => module_exists('colorbox')
         ? '<a href="!filepath" class="colorbox" target="_blank">!text</a>'
         : '<a href="!filepath" target="_blank">!text</a>',
-      'image_style' => 'large',
-      'link_to_original' => 1,
-      'link_only_big' => 1,
-      'rename_file' => 0,
+      'link_template' => '<a href="!filepath" target="_blank">!image</a>',
     ),
     array(
       'mask' => 'rar,zip,doc,xls',
-      'path' => 'files',
+      'path' => 'public://inline/files',
       'template' => '<a href="!filepath">!filename</a>',
       'template_select' => '<a href="!filepath">!text</a>',
-      'rename_file' => 0,
     ),
     array(
       'mask' => 'webm,mp4,ogv',
-      'path' => 'video',
+      'path' => 'public://inline/video',
       'template' => '<video src="!filepath" width="480" height="390" controls></video>',
       'template_select' => '<a href="!filepath">!text</a>',
-      'rename_file' => 0,
     ),
   );
 
   foreach ($templates as $template) {
-    $directory = 'public://' . $template['path'];
-    file_prepare_directory($directory, FILE_CREATE_DIRECTORY);
+    file_prepare_directory($template['path'], FILE_CREATE_DIRECTORY);
+    ocupload_template_save($template);
   }
-
-  ocupload_template_save($templates, TRUE);
 }
 
 /**
  * Implements hook_uninstall().
  */
 function ocupload_uninstall() {
-  foreach (array('ocupload_delete_unused_files') as $name) {
-    variable_del($name);
+  $vars = array(
+    'ocupload_textarea_dragndrop',
+  );
+  foreach ($vars as $var) {
+    variable_del($var);
   }
 }
 
@@ -256,4 +268,64 @@ function ocupload_update_7105() {
 
   // Delete field
   db_drop_field('ocupload_templates', 'show_in_colorbox');
+}
+
+/**
+ * Delete col {ocupload_templates}.rename_file.
+ * Add new col {ocupload_templates}.transliterate
+ */
+function ocupload_update_7200() {
+  // Delete field
+  db_drop_field('ocupload_templates', 'rename_file');
+
+  // Add field
+  db_add_field('ocupload_templates', 'transliterate', array(
+    'description' => '1 - transliterate filename, 0 - not transliterate',
+    'type' => 'int',
+    'size' => 'tiny',
+    'unsigned' => TRUE,
+    'not null' => TRUE,
+    'default' => 1,
+  ));
+}
+
+/**
+ * Change {ocupload_templates}.max_filesize.
+ */
+function ocupload_update_7201() {
+  // Add field
+  db_change_field('ocupload_templates', 'max_filesize', 'max_filesize', array(
+    'description' => 'Max filesize in bytes',
+    'type' => 'int',
+    'size' => 'big',
+    'unsigned' => TRUE,
+    'not null' => TRUE,
+    'default' => 0,
+  ));
+}
+
+/**
+ * Add new col {ocupload_templates}.filename
+ */
+function ocupload_update_7202() {
+  db_add_field('ocupload_templates', 'filename', array(
+    'description' => 'Filename',
+    'type' => 'varchar',
+    'length' => 255,
+    'not null' => TRUE,
+    'default' => '',
+  ));
+}
+
+/**
+ * Add new col {ocupload_templates}.field
+ */
+function ocupload_update_7203() {
+  db_add_field('ocupload_templates', 'field', array(
+    'description' => 'Field name',
+    'type' => 'varchar',
+    'length' => 255,
+    'not null' => TRUE,
+    'default' => '',
+  ));
 }
